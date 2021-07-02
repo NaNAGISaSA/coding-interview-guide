@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and install gtest
+        run: |
+          git clone https://github.com/google/googletest.git
+          cmake -Sgoogletest -Bgoogletest/build
+          sudo cmake --build googletest/build --parallel --target install
+          sudo rm -rf googletest
+
+      - uses: actions/checkout@v2
+
+      - name: Build project
+        run: |
+          cmake -S. -Bbuild
+          cmake --build build --parallel
+
+      - name: Run tests
+        run: ./build/main
