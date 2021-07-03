@@ -19,5 +19,3 @@ public:
 }  // namespace coding_interview_guide::stack_and_queue::recurse_reverse_stack
 
 #endif
-
-
