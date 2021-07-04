@@ -31,6 +31,22 @@ void SortStack<T>::sort_stack(std::stack<T>& stack) {
     stack = std::move(internal);
 }
 
+template <typename T>
+void SortStack<T>::sort_stack_demo(std::stack<T>& stack) {
+    std::stack<T> internal;
+    while(stack.size()){
+        T& top = stack.top();
+        stack.pop();
+        while(internal.size() && internal.top() > top){
+            T& internal_top = internal.top();
+            stack.push(std::move(internal_top));
+            internal.pop();
+        }
+        internal.push(std::move(top));
+    }
+    stack = std::move(internal);
+}
+
 template class SortStack<int>;
 
 }  // namespace coding_interview_guide::stack_and_queue::stack_sort

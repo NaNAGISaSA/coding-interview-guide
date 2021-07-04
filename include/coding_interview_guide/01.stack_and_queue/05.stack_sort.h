@@ -16,6 +16,7 @@ template <typename T>
 class SortStack {
 public:
     static void sort_stack(std::stack<T>&);
+    static void sort_stack_demo(std::stack<T>&);
 };
 
 }  // namespace coding_interview_guide::stack_and_queue::stack_sort
