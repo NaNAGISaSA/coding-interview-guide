@@ -33,8 +33,8 @@ T& TwoStackQueue<T>::front() {
 
 template <typename T>
 void TwoStackQueue<T>::transfer_data() {
-    if(!_reverse_stack.size()){
-        while(_stack.size()){
+    if (!_reverse_stack.size()) {
+        while (_stack.size()) {
             _reverse_stack.push(std::move(_stack.top()));
             _stack.pop();
         }

@@ -1,6 +1,6 @@
 #include "01.stack_and_queue/05.stack_sort.h"
-#include <deque>
 #include <gtest/gtest.h>
+#include <deque>
 
 using namespace coding_interview_guide::stack_and_queue::stack_sort;
 

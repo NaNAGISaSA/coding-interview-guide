@@ -13,21 +13,20 @@ namespace coding_interview_guide::stack_and_queue::two_stack_queue {
 template <typename T>
 class TwoStackQueue {
 public:
-
     TwoStackQueue();
-    
+
     void push(const T&);
     void push(T&&);
-    
+
     void pop();
-    
+
     // transfer_data is not a const operation
     // const T& front() const;
     T& front();
 
 private:
     void transfer_data();
-    
+
     std::stack<T> _stack;
     std::stack<T> _reverse_stack;
 };

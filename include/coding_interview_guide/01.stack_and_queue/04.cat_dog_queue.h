@@ -22,22 +22,26 @@ namespace coding_interview_guide::stack_and_queue::cat_dog_queue {
 // User's headers
 class Pet {
 public:
-    Pet(std::string type) : _type(std::move(type)) {}
+    Pet(std::string type) : _type(std::move(type)) {
+    }
     const std::string& get_type() const {
         return _type;
     }
+
 private:
     std::string _type;
 };
 
 class Dog : public Pet {
 public:
-    Dog() : Pet("dog") {}
+    Dog() : Pet("dog") {
+    }
 };
 
 class Cat : public Pet {
 public:
-    Cat() : Pet("cat") {}
+    Cat() : Pet("cat") {
+    }
 };
 
 // Code
