@@ -1,5 +1,6 @@
-#include "01.stack_and_queue/04.cat_dog_queue.h"
 #include <gtest/gtest.h>
+
+#include "01.stack_and_queue/04.cat_dog_queue.h"
 
 using namespace coding_interview_guide::stack_and_queue::cat_dog_queue;
 

@@ -1,5 +1,6 @@
-#include "01.stack_and_queue/01.get_min_stack.h"
 #include <gtest/gtest.h>
+
+#include "01.stack_and_queue/01.get_min_stack.h"
 
 using namespace coding_interview_guide::stack_and_queue::get_min_stack;
 

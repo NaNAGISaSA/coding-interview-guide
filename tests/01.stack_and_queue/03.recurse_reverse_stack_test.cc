@@ -1,6 +1,7 @@
-#include "01.stack_and_queue/03.recurse_reverse_stack.h"
 #include <gtest/gtest.h>
 #include <deque>
+
+#include "01.stack_and_queue/03.recurse_reverse_stack.h"
 
 using namespace coding_interview_guide::stack_and_queue::recurse_reverse_stack;
 

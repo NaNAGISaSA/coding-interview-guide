@@ -1,5 +1,6 @@
-#include "01.stack_and_queue/02.two_stack_queue.h"
 #include <gtest/gtest.h>
+
+#include "01.stack_and_queue/02.two_stack_queue.h"
 
 using namespace coding_interview_guide::stack_and_queue::two_stack_queue;
 
