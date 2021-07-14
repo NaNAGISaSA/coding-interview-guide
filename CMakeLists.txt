@@ -19,5 +19,5 @@ file(GLOB_RECURSE tests "tests/*.cc")
 
 set(main "executable")
 add_executable(main ${sources} ${tests})
-target_include_directories(main PRIVATE "include/coding_interview_guide")
+target_include_directories(main PRIVATE "include/coding_interview_guide" "tests/00.utils")
 target_link_libraries(main gtest gtest_main pthread)
