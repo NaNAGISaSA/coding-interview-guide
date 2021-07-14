@@ -6,8 +6,6 @@
 给定两个升序链表，打印两个升序链表的公共部分。
 */
 
-#include <vector>
-
 #include "02.linked_list/00.linked_list_utils.h"
 
 namespace coding_interview_guide::linked_list::ordered_linked_list_public_part {
