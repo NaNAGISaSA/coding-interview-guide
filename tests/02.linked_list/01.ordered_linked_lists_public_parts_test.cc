@@ -4,7 +4,7 @@
 #include "linked_list_test_utils.h"
 #include "02.linked_list/01.ordered_linked_lists_public_parts.h"
 
-using namespace coding_interview_guide::linked_list::utils;
+using namespace coding_interview_guide::linked_list;
 using namespace coding_interview_guide::linked_list::ordered_linked_list_public_part;
 
 TEST(ORDERED_LINKED_LIST_PUBLIC_PART, ORDERED_LINKED_LIST_PUBLIC_PART_EXAMPLE_TEST){

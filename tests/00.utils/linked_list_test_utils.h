@@ -6,7 +6,7 @@
 
 #include "02.linked_list/00.linked_list_utils.h"
 
-namespace coding_interview_guide::linked_list::utils {
+namespace coding_interview_guide::linked_list {
 
 template <typename T>
 struct LinkedListRAII {
