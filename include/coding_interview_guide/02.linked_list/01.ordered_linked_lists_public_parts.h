@@ -17,6 +17,6 @@ public:
     static std::vector<int> find_public_part(const Node<int>* head1, const Node<int>* head2);
 };
 
-}
+}  // namespace coding_interview_guide::linked_list::ordered_linked_list_public_part
 
 #endif

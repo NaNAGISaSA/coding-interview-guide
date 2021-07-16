@@ -5,12 +5,12 @@ namespace coding_interview_guide::linked_list {
 
 template <typename T>
 struct Node {
-    Node(T&& value) : val(std::forward<T>(value)), next(nullptr){
+    Node(T&& value) : val(std::forward<T>(value)), next(nullptr) {
     }
     T val;
     Node* next;
 };
 
-}
+}  // namespace coding_interview_guide::linked_list
 
 #endif

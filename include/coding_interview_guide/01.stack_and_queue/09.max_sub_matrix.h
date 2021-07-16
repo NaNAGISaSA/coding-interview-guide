@@ -17,6 +17,6 @@ public:
     static size_t max_sub_matirx(const std::vector<std::vector<int>>& input);
 };
 
-}  // namespace coding_interview_guide::stack_and_queue::max_sub_matirx
+}  // namespace coding_interview_guide::stack_and_queue::max_sub_matrix
 
 #endif
