@@ -1,4 +1,3 @@
-#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 #include "02.linked_list/03.delete_a_div_b_node.h"

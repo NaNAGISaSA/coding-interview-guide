@@ -1,4 +1,3 @@
-#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 #include "02.linked_list/02.delete_reversed_kth_node.h"

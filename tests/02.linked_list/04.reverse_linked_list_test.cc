@@ -1,4 +1,3 @@
-#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 #include "02.linked_list/04.reverse_linked_list.h"
