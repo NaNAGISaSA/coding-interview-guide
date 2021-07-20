@@ -17,7 +17,7 @@ namespace coding_interview_guide::linked_list::palindrome_linked_list {
 class PalindromeLinkedList {
 public:
     static bool is_palindrome(const Node<int>* head);
-    static bool is_palindrome_opt(const Node<int>* head);
+    static bool is_palindrome_opt(Node<int>* head);
 };
 
 }  // namespace coding_interview_guide::linked_list::palindrome_linked_list
