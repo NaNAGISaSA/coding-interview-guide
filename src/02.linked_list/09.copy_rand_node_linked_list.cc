@@ -21,7 +21,32 @@ RandNode<int>* CopyRandomNodeLinkedList::copy(RandNode<int>* head) {
 }
 
 RandNode<int>* CopyRandomNodeLinkedList::copy_opt(RandNode<int>* head) {
-    return head;
+    RandNode<int>* curr_head = head;
+    RandNode<int>* next = nullptr;
+    while (curr_head != nullptr) {
+        auto copy = new RandNode<int>(curr_head->val);
+        next = curr_head->next;
+        curr_head->next = copy;
+        copy->next = next;
+        curr_head = next;
+    }
+    curr_head = head;
+    RandNode<int>* rand = nullptr;
+    while (curr_head != nullptr) {
+        rand = curr_head->rand;
+        curr_head->next->rand = rand == nullptr ? nullptr : rand->next;
+        curr_head = curr_head->next->next;
+    }
+    curr_head = head;
+    next = curr_head->next;
+    RandNode<int>* result = next;
+    while (curr_head != nullptr) {
+        curr_head->next = next->next;
+        curr_head = curr_head->next;
+        next->next = curr_head == nullptr ? nullptr : curr_head->next;
+        next = next->next;
+    }
+    return result;
 }
 
 }  // namespace coding_interview_guide::linked_list::copy_rand_node_linked_list
