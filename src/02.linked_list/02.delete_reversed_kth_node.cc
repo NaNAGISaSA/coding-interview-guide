@@ -4,11 +4,10 @@ namespace coding_interview_guide::linked_list::delete_reversed_kth_node {
 
 Node<int>* DeleteReversedKthNode::delete_kth_node(Node<int>* head, int k) {
     Node<int>* curr_head = head;
-    while (curr_head->next != nullptr) {
+    while (curr_head != nullptr) {
         --k;
         curr_head = curr_head->next;
     }
-    --k;
     if (k == 0) {
         return head->next;
     }
@@ -22,11 +21,10 @@ Node<int>* DeleteReversedKthNode::delete_kth_node(Node<int>* head, int k) {
 
 DoubleNode<int>* DeleteReversedKthNode::delete_kth_double_node(DoubleNode<int>* head, int k) {
     DoubleNode<int>* curr_head = head;
-    while (curr_head->next != nullptr) {
+    while (curr_head != nullptr) {
         --k;
         curr_head = curr_head->next;
     }
-    --k;
     if (k == 0) {
         head->next->prev = nullptr;
         return head->next;
