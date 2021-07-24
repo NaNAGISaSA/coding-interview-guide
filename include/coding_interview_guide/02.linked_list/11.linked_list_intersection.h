@@ -16,10 +16,14 @@
 
 namespace coding_interview_guide::linked_list::linked_list_intersection {
 
+class FindLinkedListLoop {
+public:
+    static Node<int>* linked_list_loop(Node<int>* head);
+};
+
 class FindLinkedListIntersection {
 public:
     static Node<int>* find_intersection(Node<int>* head1, Node<int>* head2);
-    static Node<int>* linked_list_loop(Node<int>* head);
 };
 
 }  // namespace coding_interview_guide::linked_list::linked_list_intersection
