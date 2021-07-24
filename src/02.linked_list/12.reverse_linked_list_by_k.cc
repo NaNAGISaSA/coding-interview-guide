@@ -26,7 +26,6 @@ Node<int>* ReverseLinkedListByK::reverse_linked_list(Node<int>* head, int k) {
         }
         if (--copy_k == 0) {
             block_tail = curr_head;
-            curr_head = curr_head->next;
             copy_k = k;
             if (block_prev == nullptr) {
                 block_prev = block_head;
@@ -34,6 +33,7 @@ Node<int>* ReverseLinkedListByK::reverse_linked_list(Node<int>* head, int k) {
                 block_prev->next = block_tail;
                 block_prev = block_head;
             }
+            curr_head = curr_head->next;
             Node<int>* prev = nullptr;
             Node<int>* next = nullptr;
             while (block_head != curr_head) {
@@ -47,7 +47,7 @@ Node<int>* ReverseLinkedListByK::reverse_linked_list(Node<int>* head, int k) {
         }
     }
 
-    if (block_prev->next == nullptr && copy_k != k) {
+    if (block_prev != nullptr && block_prev->next == nullptr && copy_k != k) {
         block_prev->next = block_head;
     }
     return result;
