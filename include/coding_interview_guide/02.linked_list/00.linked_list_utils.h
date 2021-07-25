@@ -16,6 +16,8 @@ struct Node {
 
 template <typename T>
 struct DoubleNode {
+    DoubleNode(T& value) : val(value), prev(nullptr), next(nullptr) {
+    }
     DoubleNode(T&& value) : val(std::move(value)), prev(nullptr), next(nullptr) {
     }
     T val;
@@ -32,6 +34,21 @@ struct RandNode {
     T val;
     RandNode* rand;
     RandNode* next;
+};
+
+template <typename T>
+struct BST {
+    template <typename TT, std::enable_if_t<std::is_same<std::decay_t<TT>, T>::value, bool> = true>
+    BST(TT&& value) : val(std::forward<TT>(value)), lch(nullptr), rch(nullptr) {
+    }
+
+    template <typename TT, std::enable_if_t<std::is_same<std::decay_t<TT>, T>::value, bool> = true>
+    BST(TT&& value, BST* left, BST* right) : val(std::forward<TT>(value)), lch(left), rch(right) {
+    }
+
+    T val;
+    BST* lch;
+    BST* rch;
 };
 
 }  // namespace coding_interview_guide::linked_list
