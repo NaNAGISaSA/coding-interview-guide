@@ -35,4 +35,36 @@ DoubleNode<int>* BST2DoubleLinkedList::transfer(BST<int>* root) {
     return result;
 }
 
+namespace {
+struct Ret {
+    Ret(DoubleNode<int>* _start, DoubleNode<int>* _end) : start(_start), end(_end) {
+    }
+
+    DoubleNode<int>* start;
+    DoubleNode<int>* end;
+};
+
+Ret convert_root_to_linked_list(BST<int>* root) {
+    if (root == nullptr) {
+        return {nullptr, nullptr};
+    }
+    auto node = new DoubleNode<int>(root->val);
+    auto left = convert_root_to_linked_list(root->lch);
+    auto right = convert_root_to_linked_list(root->rch);
+    if (left.end != nullptr) {
+        left.end->next = node;
+    }
+    if (right.start != nullptr) {
+        right.start->prev = node;
+    }
+    node->prev = left.end;
+    node->next = right.start;
+    return Ret(left.start == nullptr ? node : left.start, right.end == nullptr ? node : right.end);
+}
+}  // namespace
+
+DoubleNode<int>* BST2DoubleLinkedList::transfer_recurse(BST<int>* root) {
+    return convert_root_to_linked_list(root).start;
+}
+
 }  // namespace coding_interview_guide::linked_list::bst_to_double_linked_list
