@@ -8,6 +8,8 @@ namespace coding_interview_guide::linked_list {
 
 template <typename T>
 struct Node {
+    Node(T& value) : val(value), next(nullptr) {
+    }
     Node(T&& value) : val(std::move(value)), next(nullptr) {
     }
     T val;
