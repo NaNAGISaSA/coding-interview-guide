@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <iostream>
 
 #include "02.linked_list/18.insert_node_to_order_linked_list.h"
 #include "linked_list_test_utils.h"

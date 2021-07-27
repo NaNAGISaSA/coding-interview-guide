@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <iostream>
 
 #include "02.linked_list/17.strange_delete_node_method.h"
 #include "linked_list_test_utils.h"

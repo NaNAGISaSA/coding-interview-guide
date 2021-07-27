@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <iostream>
 
 #include "02.linked_list/16.select_sort_linked_list.h"
 #include "linked_list_test_utils.h"
