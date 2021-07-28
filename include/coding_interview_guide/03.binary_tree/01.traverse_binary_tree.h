@@ -11,12 +11,13 @@ namespace coding_interview_guide::binary_tree::traverse_binary_tree {
 
 class TraverseBinaryTree {
 public:
-    static void pre_order_traverse(Node<int>* root);
-    static void in_order_traverse(Node<int>* root);
-    static void post_order_traverse(Node<int>* root);
-    static void pre_order_traverse_recurse(Node<int>* root);
-    static void in_order_traverse_recurse(Node<int>* root);
-    static void post_order_traverse_recurse(Node<int>* root);
+    static void pre_order_traverse(const Node<int>* root);
+    static void in_order_traverse(const Node<int>* root);
+    static void post_order_traverse_s1_method(const Node<int>* root);
+    static void post_order_traverse_s2_method(const Node<int>* root);
+    static void pre_order_traverse_recurse(const Node<int>* root);
+    static void in_order_traverse_recurse(const Node<int>* root);
+    static void post_order_traverse_recurse(const Node<int>* root);
 };
 
 }  // namespace coding_interview_guide::binary_tree::traverse_binary_tree
