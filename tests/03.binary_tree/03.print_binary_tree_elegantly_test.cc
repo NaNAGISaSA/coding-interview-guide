@@ -14,9 +14,14 @@ TEST(PRINT_BINARY_TREE_ELEGHANTLY, PRINT_BINARY_TREE_ELEGHANTLY_EXAMPLE_TEST) {
     node3.right = &node6;
     testing::internal::CaptureStdout();
     PrintBinaryTreeElegantly::print(&node1);
-    std::string output =
-        "                                         v6v       \n                        v3v       \n                     "
-        "                    ^5^       \n       H1H       \n                                         v4v       \n      "
-        "                  ^2^       \n";
+    // clang-format off
+    std::string output = 
+    "                                         v6v       \n"
+    "                        v3v       \n"
+    "                                         ^5^       \n"
+    "       H1H       \n"
+    "                                         v4v       \n"
+    "                        ^2^       \n";
+    // clang-format on
     ASSERT_EQ(testing::internal::GetCapturedStdout(), output);
 }

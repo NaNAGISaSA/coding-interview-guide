@@ -6,13 +6,14 @@
 namespace coding_interview_guide::binary_tree::print_binary_tree_elegantly {
 
 namespace {
-size_t MAX_PRINT_NODE = 17;
+size_t node_stride = 17;
+size_t sign_length = 2;
 
 void print_node(int val, unsigned int level, const char sign) {
-    std::string space(level * MAX_PRINT_NODE, ' ');
+    std::string space(level * node_stride, ' ');
     size_t val_len = std::to_string(val).size();
-    std::string space_before((MAX_PRINT_NODE - val_len - 2) / 2, ' ');
-    std::string space_after(space_before.size() + (MAX_PRINT_NODE - val_len - 2) % 2, ' ');
+    std::string space_before((node_stride - val_len - sign_length) / 2, ' ');
+    std::string space_after(space_before.size() + (node_stride - val_len - sign_length) % 2, ' ');
     std::cout << space << space_before << sign << std::to_string(val) << sign << space_after << std::endl;
 }
 
