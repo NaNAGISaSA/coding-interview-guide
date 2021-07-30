@@ -17,7 +17,10 @@ namespace coding_interview_guide::binary_tree::binary_tree_serialization {
 
 class BinaryTreeSerial {
 public:
-    static std::string pre_order_serial(Node<int>* root);
+    static std::string pre_order_serial(const Node<int>* root);
+    static const Node<int>* pre_order_deserial(const std::string& str);
+    static std::string level_order_serial(const Node<int>* root);
+    static const Node<int>* level_order_deserial(const std::string& str);
 };
 
 }  // namespace coding_interview_guide::binary_tree::binary_tree_serialization
