@@ -16,6 +16,12 @@ struct Node {
     Node* right;
 };
 
+template <typename T>
+void construct_tree_helper(Node<T>& root, Node<T>& left, Node<T>& right) {
+    root.left = &left;
+    root.right = &right;
+}
+
 }  // namespace coding_interview_guide::binary_tree
 
 #endif
