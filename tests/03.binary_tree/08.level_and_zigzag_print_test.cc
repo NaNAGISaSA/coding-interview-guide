@@ -41,3 +41,21 @@ TEST(LEVEL_AND_ZIGZAG_PRINT, LEVEL_PRINT_METHOD_TWO_EXAMPLE_TEST) {
     PrintBinaryTree::level_print_method2(&node1);
     ASSERT_EQ(testing::internal::GetCapturedStdout(), truth);
 }
+
+TEST(LEVEL_AND_ZIGZAG_PRINT, ZIGZAG_PRINT_EXAMPLE_TEST) {
+    Node<int> node1(1), node2(2), node3(3), node4(4), node5(5), node6(6), node7(7), node8(8);
+    construct_tree_helper(&node1, &node2, &node3);
+    construct_tree_helper<int>(&node2, &node4, nullptr);
+    construct_tree_helper(&node3, &node5, &node6);
+    construct_tree_helper(&node5, &node7, &node8);
+    // clang-format off
+    std::string truth = 
+        "Level 1 from left to right: 1\n"
+        "Level 2 from right to left: 3 2\n"
+        "Level 3 from left to right: 4 5 6\n"
+        "Level 4 from right to left: 8 7\n";
+    // clang-format on
+    testing::internal::CaptureStdout();
+    PrintBinaryTree::zigzag_print(&node1);
+    ASSERT_EQ(testing::internal::GetCapturedStdout(), truth);
+}
