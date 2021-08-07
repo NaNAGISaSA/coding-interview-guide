@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <utility>
 
 #include "03.binary_tree/08.level_and_zigzag_print.h"
 
@@ -30,6 +31,38 @@ void PrintBinaryTree::level_print(const Node<int>* root) {
         ++level;
         queue = std::move(tmp_queue);
     }
+}
+
+void PrintBinaryTree::level_print_method2(const Node<int>* root) {
+    if (root == nullptr) {
+        return;
+    }
+    std::queue<const Node<int>*> queue;
+    queue.push(root);
+    unsigned int level = 1;
+    const Node<int>* level_last = root;
+    const Node<int>* curr_last = nullptr;
+    std::cout << "Level " << std::to_string(level) << " :";
+    while (queue.size()) {
+        const Node<int>* top = queue.front();
+        queue.pop();
+        std::cout << " " << std::to_string(top->val);
+        if (top->left != nullptr) {
+            queue.push(top->left);
+            curr_last = top->left;
+        }
+        if (top->right != nullptr) {
+            queue.push(top->right);
+            curr_last = top->right;
+        }
+        if (top == level_last && queue.size()) {
+            std::cout << std::endl;
+            ++level;
+            level_last = curr_last;
+            std::cout << "Level " << std::to_string(level) << " :";
+        }
+    }
+    std::cout << std::endl;
 }
 
 // void PrintBinaryTree::zigzag_print(const Node<int>* root) {

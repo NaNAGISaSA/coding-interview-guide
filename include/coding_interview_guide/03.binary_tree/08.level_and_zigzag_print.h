@@ -25,6 +25,7 @@ namespace coding_interview_guide::binary_tree::level_and_zigzag_print {
 class PrintBinaryTree {
 public:
     static void level_print(const Node<int>* root);
+    static void level_print_method2(const Node<int>* root);
     static void zigzag_print(const Node<int>* root);
 };
 
