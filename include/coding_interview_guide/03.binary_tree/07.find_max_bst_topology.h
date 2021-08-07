@@ -16,6 +16,7 @@ namespace coding_interview_guide::binary_tree::find_max_bst_topology {
 class FindMaxBSTTopology {
 public:
     static unsigned int max_topology_num(const Node<int>* root);
+    static unsigned int max_topology_num_opt(const Node<int>* root);
 };
 
 }  // namespace coding_interview_guide::binary_tree::find_max_bst_topology
