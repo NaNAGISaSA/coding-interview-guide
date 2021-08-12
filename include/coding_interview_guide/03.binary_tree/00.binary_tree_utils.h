@@ -7,7 +7,7 @@ namespace coding_interview_guide::binary_tree {
 
 template <typename T>
 struct Node {
-    Node(T& value) : val(value), left(nullptr), right(nullptr) {
+    Node(const T& value) : val(value), left(nullptr), right(nullptr) {
     }
     Node(T&& value) : val(std::move(value)), left(nullptr), right(nullptr) {
     }

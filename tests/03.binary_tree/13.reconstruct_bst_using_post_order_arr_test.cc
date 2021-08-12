@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "03.binary_tree/13.reconstruct_bst_using_arr.h"
+#include "03.binary_tree/13.reconstruct_bst_using_post_order_arr.h"
 
 using namespace coding_interview_guide::binary_tree;
 using namespace coding_interview_guide::binary_tree::reconstruct_bst_using_arr;
