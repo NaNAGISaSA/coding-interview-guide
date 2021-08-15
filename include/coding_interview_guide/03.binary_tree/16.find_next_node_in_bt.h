@@ -14,6 +14,7 @@ namespace coding_interview_guide::binary_tree::find_next_node_in_bt {
 class FindNextNode {
 public:
     static const NewNode<int>* find_node(const NewNode<int>* node);
+    static const NewNode<int>* find_node_opt(const NewNode<int>* node);
 };
 
 }  // namespace coding_interview_guide::binary_tree::find_next_node_in_bt
