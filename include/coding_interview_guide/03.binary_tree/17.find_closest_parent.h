@@ -19,8 +19,6 @@ public:
     static const Node<int>* find_closest_parent(const Node<int>* root, const Node<int>* node1, const Node<int>* node2);
 };
 
-// init: time complexity: O(N), space complexity: O(N)
-// find: time complexity: O(h)
 class FrequentFindClosestNode {
 public:
     FrequentFindClosestNode(const Node<int>* root);
@@ -28,6 +26,15 @@ public:
 
 private:
     std::unordered_map<const Node<int>*, const Node<int>*> record;
+};
+
+class FrequentFindClosestNode2 {
+public:
+    FrequentFindClosestNode2(const Node<int>* root);
+    const Node<int>* find_closest_parent(const Node<int>* node1, const Node<int>* node2);
+
+private:
+    std::unordered_map<const Node<int>*, std::unordered_map<const Node<int>*, const Node<int>*>> record;
 };
 
 }  // namespace coding_interview_guide::binary_tree::find_closest_parent

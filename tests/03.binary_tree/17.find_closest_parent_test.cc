@@ -25,3 +25,15 @@ TEST(FIND_CLOESTED_PARENT, FREQUENT_FIND_CLOESTED_PARENT_TEST) {
     ASSERT_EQ(algorithm.find_closest_parent(&node4, &node6), &node1);
     ASSERT_EQ(algorithm.find_closest_parent(&node8, &node6), &node3);
 }
+
+TEST(FIND_CLOESTED_PARENT, FREQUENT_FIND_CLOESTED_PARENT_TEST2) {
+    Node<int> node1(1), node2(2), node3(3), node4(4), node5(5), node6(6), node7(7), node8(8);
+    construct_tree_helper(&node1, &node2, &node3);
+    construct_tree_helper(&node2, &node4, &node5);
+    construct_tree_helper(&node3, &node6, &node7);
+    construct_tree_helper<int>(&node7, &node8, nullptr);
+    FrequentFindClosestNode2 algorithm(&node1);
+    ASSERT_EQ(algorithm.find_closest_parent(&node4, &node6), &node1);
+    ASSERT_EQ(algorithm.find_closest_parent(&node8, &node6), &node3);
+    ASSERT_EQ(algorithm.find_closest_parent(&node4, &node5), &node2);
+}
