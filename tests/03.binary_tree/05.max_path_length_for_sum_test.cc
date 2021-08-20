@@ -13,4 +13,6 @@ TEST(MAX_PATH_LENGTH_FOR_SUM, MAX_PATH_LENGTH_FOR_SUM_EXAMPLE_TEST) {
     construct_tree_helper(&node5, &node8, &node9);
     ASSERT_EQ(MaxPathLength::max_length(&node1, 6), 4);
     ASSERT_EQ(MaxPathLength::max_length(&node1, 1), 4);
+    ASSERT_EQ(MaxPathLength::max_length(&node1, -1), 0);
+    ASSERT_EQ(MaxPathLength::max_length(&node1, -9), 1);
 }
