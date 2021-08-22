@@ -7,14 +7,12 @@ static T get_and_remove_last_element(std::stack<T>& stack) {
         T& result = stack.top();
         stack.pop();
         return result;
-
-    } else {
-        T& top = stack.top();
-        stack.pop();
-        T result = get_and_remove_last_element(stack);
-        stack.push(std::move(top));
-        return result;
     }
+    T& top = stack.top();
+    stack.pop();
+    T result = get_and_remove_last_element(stack);
+    stack.push(std::move(top));
+    return result;
 }
 }  // namespace
 
