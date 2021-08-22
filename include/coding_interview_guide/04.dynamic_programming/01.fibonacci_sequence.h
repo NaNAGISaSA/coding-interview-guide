@@ -21,6 +21,12 @@ public:
     static unsigned long fib_number_opt(unsigned int index);
 };
 
+class StepProblem {
+public:
+    static unsigned long situations(unsigned int step_number);
+    static unsigned long situations_opt(unsigned int step_number);
+};
+
 }  // namespace coding_interview_guide::dynamic_programming::fibonacci_problem
 
 #endif

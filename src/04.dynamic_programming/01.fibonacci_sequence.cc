@@ -65,4 +65,31 @@ unsigned long FibProblem::fib_number_opt(unsigned int index) {
     return 1 * matrix_pow[0][0] + 0 * matrix_pow[1][0];
 }
 
+unsigned long StepProblem::situations(unsigned int step_number) {
+    if (step_number <= 2) {
+        return step_number;
+    }
+    unsigned long first = 1;
+    unsigned long second = 2;
+    unsigned long add_on = 0;
+    for (unsigned int i = 3; i <= step_number; ++i) {
+        add_on = first + second;
+        first = second;
+        second = add_on;
+    }
+    return second;
+}
+
+/*
+[F(N), F(N - 1)] = [F(N - 1), F(N - 2)] * [[1, 1], [1, 0]]
+*/
+unsigned long StepProblem::situations_opt(unsigned int step_number) {
+    if (step_number <= 2) {
+        return step_number;
+    }
+    std::vector<std::vector<long>> matrix{{1, 1}, {1, 0}};
+    auto matrix_pow = calculate_matrix(matrix, step_number - 2);
+    return 2 * matrix_pow[0][0] + 1 * matrix_pow[1][0];
+}
+
 }  // namespace coding_interview_guide::dynamic_programming::fibonacci_problem
