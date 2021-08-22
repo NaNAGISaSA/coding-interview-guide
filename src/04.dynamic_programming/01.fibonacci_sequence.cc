@@ -92,4 +92,33 @@ unsigned long StepProblem::situations_opt(unsigned int step_number) {
     return 2 * matrix_pow[0][0] + 1 * matrix_pow[1][0];
 }
 
+unsigned long CowProblem::cow_number(unsigned int year) {
+    if (year <= 3) {
+        return year;
+    }
+    unsigned long before = 3;
+    unsigned long two_before = 2;
+    unsigned long three_before = 1;
+    unsigned long add_on = 0;
+    for (unsigned int i = 4; i <= year; ++i) {
+        add_on = before + three_before;
+        three_before = two_before;
+        two_before = before;
+        before = add_on;
+    }
+    return before;
+}
+
+/*
+[F(N), F(N - 1), F(N - 2)] = [F(N - 1), F(N - 2), F(N - 3)] * [[1, 1, 0], [0, 0, 1], [1, 0, 0]]
+*/
+unsigned long CowProblem::cow_number_opt(unsigned int year) {
+    if (year <= 3) {
+        return year;
+    }
+    std::vector<std::vector<long>> matrix{{1, 1, 0}, {0, 0, 1}, {1, 0, 0}};
+    auto matrix_pow = calculate_matrix(matrix, year - 3);
+    return 3 * matrix_pow[0][0] + 2 * matrix_pow[1][0] + 1 * matrix_pow[2][0];
+}
+
 }  // namespace coding_interview_guide::dynamic_programming::fibonacci_problem

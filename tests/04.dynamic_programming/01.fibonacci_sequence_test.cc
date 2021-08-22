@@ -17,3 +17,10 @@ TEST(STEP_PROBLEM, STEP_PROBLEM_EXAMPLE_TEST) {
     ASSERT_EQ(StepProblem::situations_opt(6), 13);
     ASSERT_EQ(StepProblem::situations_opt(10), 89);
 }
+
+TEST(COW_PROBLEM, COW_PROBLEM_EXAMPLE_TEST) {
+    ASSERT_EQ(CowProblem::cow_number(6), 9);
+    ASSERT_EQ(CowProblem::cow_number(10), 41);
+    ASSERT_EQ(CowProblem::cow_number_opt(6), 9);
+    ASSERT_EQ(CowProblem::cow_number_opt(10), 41);
+}
