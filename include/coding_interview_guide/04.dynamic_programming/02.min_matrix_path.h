@@ -13,7 +13,8 @@ namespace coding_interview_guide::dynamic_programming::min_matrix_path {
 
 class MinMatrixPath {
 public:
-    static long min_sum(std::vector<std::vector<long>>& matrix);
+    static long min_sum(std::vector<std::vector<long>> matrix);
+    static long min_sum_space_opt(const std::vector<std::vector<long>>& matrix);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::min_matrix_path
