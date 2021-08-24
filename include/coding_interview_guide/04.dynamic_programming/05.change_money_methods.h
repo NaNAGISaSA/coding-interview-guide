@@ -13,7 +13,8 @@ namespace coding_interview_guide::dynamic_programming::change_money_methods {
 
 class ChangeMoneyMethods {
 public:
-    static unsigned int methods_number(const std::vector<unsigned int>& vec, unsigned int aim);
+    static unsigned long methods_number(const std::vector<unsigned int>& vec, const unsigned int aim);
+    static unsigned long methods_number_space_opt(const std::vector<unsigned int>& vec, const unsigned int aim);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::change_money_methods
