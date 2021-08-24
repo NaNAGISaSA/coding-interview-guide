@@ -13,7 +13,7 @@ namespace coding_interview_guide::dynamic_programming::change_money {
 
 class ChangeMoney {
 public:
-    static unsigned int min_currency(const std::vector<unsigned int>& vec, unsigned int aim);
+    static int min_currency(const std::vector<unsigned int>& vec, unsigned int aim);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::change_money
