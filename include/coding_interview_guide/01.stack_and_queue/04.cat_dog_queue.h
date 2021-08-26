@@ -47,11 +47,11 @@ public:
 // Code
 class IndexPet {
 public:
-    IndexPet(const Pet& pet, long index);
-    IndexPet(Pet&& pet, long index);
+    IndexPet(const Pet& pet, unsigned long index);
+    IndexPet(Pet&& pet, unsigned long index);
 
     Pet pet;
-    long index;
+    unsigned long index;
 };
 
 class CatDogQueue {
@@ -75,7 +75,7 @@ public:
 private:
     std::queue<IndexPet> _dog_queue;
     std::queue<IndexPet> _cat_queue;
-    std::atomic<long> _index{0};
+    std::atomic<unsigned long> _index{0L};
 };
 
 }  // namespace coding_interview_guide::stack_and_queue::cat_dog_queue

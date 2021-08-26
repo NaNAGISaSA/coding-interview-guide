@@ -2,10 +2,10 @@
 
 namespace coding_interview_guide::stack_and_queue::cat_dog_queue {
 
-IndexPet::IndexPet(const Pet& pet, long index) : pet(pet), index(index) {
+IndexPet::IndexPet(const Pet& pet, unsigned long index) : pet(pet), index(index) {
 }
 
-IndexPet::IndexPet(Pet&& pet, long index) : pet(std::move(pet)), index(index) {
+IndexPet::IndexPet(Pet&& pet, unsigned long index) : pet(std::move(pet)), index(index) {
 }
 
 CatDogQueue::CatDogQueue() = default;
@@ -63,7 +63,9 @@ bool CatDogQueue::is_cat_empty() const {
 }
 
 const Pet& CatDogQueue::front() const {
-    if (_dog_queue.front().index > _cat_queue.front().index) {
+    if (!is_cat_empty() && !is_dog_empty()) {
+        return _dog_queue.front().index > _cat_queue.front().index ? _cat_queue.front().pet : _dog_queue.front().pet;
+    } else if (!is_cat_empty()) {
         return _cat_queue.front().pet;
     } else {
         return _dog_queue.front().pet;
@@ -71,7 +73,9 @@ const Pet& CatDogQueue::front() const {
 }
 
 Pet& CatDogQueue::front() {
-    if (_dog_queue.front().index > _cat_queue.front().index) {
+    if (!is_cat_empty() && !is_dog_empty()) {
+        return _dog_queue.front().index > _cat_queue.front().index ? _cat_queue.front().pet : _dog_queue.front().pet;
+    } else if (!is_cat_empty()) {
         return _cat_queue.front().pet;
     } else {
         return _dog_queue.front().pet;
