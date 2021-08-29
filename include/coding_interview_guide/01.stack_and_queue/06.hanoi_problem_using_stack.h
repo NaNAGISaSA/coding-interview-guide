@@ -10,14 +10,11 @@
 2. 非递归方法，并使用栈来模拟三个塔。
 */
 
-#include <string>
-#include <utility>
-
 namespace coding_interview_guide::stack_and_queue::hanoi_problem_using_stack {
 
 class HanoiProblem {
 public:
-    static std::pair<int, std::string> recurse_method(int num);
+    static int recurse_method(int num);
     static int stack_method(int num);
 };
 
