@@ -16,11 +16,14 @@ a[i]的值代表第i+1个圆盘的位置（a[i]下标从0开始）。
 进阶问题实现时间复杂度为O(N)的方法。
 */
 
+#include <vector>
+
 namespace coding_interview_guide::dynamic_programming::hanoi_problem {
 
 class HanoiProblem {
 public:
     static void origin_problem(unsigned int n);
+    static long advanced_problem(const std::vector<unsigned int>& vec);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::hanoi_problem

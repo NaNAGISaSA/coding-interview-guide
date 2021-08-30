@@ -12,3 +12,11 @@ TEST(HANOI_PROBLEM, HANOI_PROBLEM_ORIGIN_EXAMPLE_TEST) {
         "move from mid to left\nmove from mid to right\nmove from left to right\n";
     ASSERT_EQ(testing::internal::GetCapturedStdout(), truth);
 }
+
+TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_EXAMPLE_TEST) {
+    std::vector<unsigned int> vec1{1, 1}, vec2{2, 1}, vec3{3, 3}, vec4{2, 2};
+    ASSERT_EQ(HanoiProblem::advanced_problem(vec1), 0);
+    ASSERT_EQ(HanoiProblem::advanced_problem(vec2), 1);
+    ASSERT_EQ(HanoiProblem::advanced_problem(vec3), 3);
+    ASSERT_EQ(HanoiProblem::advanced_problem(vec4), -1);
+}
