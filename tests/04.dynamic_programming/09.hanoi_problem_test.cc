@@ -20,3 +20,11 @@ TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_EXAMPLE_TEST) {
     ASSERT_EQ(HanoiProblem::advanced_problem(vec3), 3);
     ASSERT_EQ(HanoiProblem::advanced_problem(vec4), -1);
 }
+
+TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_DP_EXAMPLE_TEST) {
+    std::vector<unsigned int> vec1{1, 1}, vec2{2, 1}, vec3{3, 3}, vec4{2, 2};
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec1), 0);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec2), 1);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec3), 3);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec4), -1);
+}

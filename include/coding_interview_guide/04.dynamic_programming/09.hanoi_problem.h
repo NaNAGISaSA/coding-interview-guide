@@ -24,6 +24,7 @@ class HanoiProblem {
 public:
     static void origin_problem(unsigned int n);
     static long advanced_problem(const std::vector<unsigned int>& vec);
+    static long advanced_problem_dp(const std::vector<unsigned int>& vec);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::hanoi_problem
