@@ -8,3 +8,8 @@ TEST(MAX_COMMON_SUBSTR, MAX_COMMON_SUBSTR_EXAMPLE_TEST) {
     ASSERT_EQ(MaxCommonSubstr::max_substr("1AB2345CD", "12345EF"), std::string("2345"));
     ASSERT_EQ(MaxCommonSubstr::max_substr("A123B4", "CD1234"), std::string("123"));
 }
+
+TEST(MAX_COMMON_SUBSTR, MAX_COMMON_SUBSTR_OPT_EXAMPLE_TEST) {
+    ASSERT_EQ(MaxCommonSubstr::max_substr_space_opt("1AB2345CD", "12345EF"), std::string("2345"));
+    ASSERT_EQ(MaxCommonSubstr::max_substr_space_opt("A123B4", "CD1234"), std::string("123"));
+}

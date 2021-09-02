@@ -37,4 +37,41 @@ std::string MaxCommonSubstr::max_substr(const std::string& str1, const std::stri
     return max_length == 0 ? "" : str1.substr(row - max_length + 1, max_length);
 }
 
+std::string MaxCommonSubstr::max_substr_space_opt(const std::string& str1, const std::string& str2) {
+    size_t s1_size = str1.size(), s2_size = str2.size();
+    if (s1_size == 0 || s2_size == 0) {
+        return "";
+    }
+    size_t row = 0, max_length = 0, begin_s1 = 0, begin_s2 = 0, value = 0;
+    for (size_t i = 0; i < s1_size; ++i) {
+        begin_s1 = i;
+        begin_s2 = 0;
+        value = 0;
+        while (begin_s1 < s1_size && begin_s2 < s2_size) {
+            value = str1[begin_s1] == str2[begin_s2] ? value + 1 : 0;
+            if (value > max_length) {
+                max_length = value;
+                row = begin_s1;
+            }
+            ++begin_s1;
+            ++begin_s2;
+        }
+    }
+    for (size_t j = 1; j < s2_size; ++j) {
+        begin_s1 = 0;
+        begin_s2 = j;
+        value = 0;
+        while (begin_s1 < s1_size && begin_s2 < s2_size) {
+            value = str1[begin_s1] == str2[begin_s2] ? 1 + value : 0;
+            if (value > max_length) {
+                max_length = value;
+                row = begin_s1;
+            }
+            ++begin_s1;
+            ++begin_s2;
+        }
+    }
+    return max_length == 0 ? "" : str1.substr(row - max_length + 1, max_length);
+}
+
 }  // namespace coding_interview_guide::dynamic_programming::max_common_substr

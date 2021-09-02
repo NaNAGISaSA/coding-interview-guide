@@ -13,6 +13,7 @@ namespace coding_interview_guide::dynamic_programming::max_common_substr {
 class MaxCommonSubstr {
 public:
     static std::string max_substr(const std::string& str1, const std::string& str2);
+    static std::string max_substr_space_opt(const std::string& str1, const std::string& str2);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::max_common_substr
