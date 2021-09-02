@@ -13,6 +13,7 @@ namespace coding_interview_guide::dynamic_programming::max_common_subsequence {
 class MaxCommonSubsequence {
 public:
     static std::string subsequence(const std::string& a, const std::string& b);
+    static std::string subsequence_dp(const std::string& a, const std::string& b);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::max_common_subsequence
