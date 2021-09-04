@@ -14,6 +14,7 @@ namespace coding_interview_guide::dynamic_programming::max_xor_zero_sub_arr {
 class MaxXorZeroSubArr {
 public:
     static unsigned int max_number(const std::vector<int>& vec);
+    static unsigned int max_number_space_opt(const std::vector<int>& vec);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::max_xor_zero_sub_arr
