@@ -14,6 +14,7 @@ namespace coding_interview_guide::dynamic_programming::num_of_expr_combination {
 class NumOfExprCombination {
 public:
     static unsigned long number(const std::string& input, bool desired);
+    static unsigned long number_dp(const std::string& input, bool desired);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::num_of_expr_combination
