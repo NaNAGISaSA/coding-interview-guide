@@ -11,6 +11,7 @@ namespace coding_interview_guide::dynamic_programming::n_queen_problem {
 class NQueenProblem {
 public:
     static unsigned int methods(const unsigned int board_length);
+    static unsigned int methods_opt(const unsigned int board_length);
 };
 
 }  // namespace coding_interview_guide::dynamic_programming::n_queen_problem

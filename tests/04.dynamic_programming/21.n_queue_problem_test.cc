@@ -10,3 +10,10 @@ TEST(N_QUEEN_PROBLEM, N_QUEEN_PROBLEM_EXAMPLE_TEST) {
     ASSERT_EQ(NQueenProblem::methods(3), 0);
     ASSERT_EQ(NQueenProblem::methods(8), 92);
 }
+
+TEST(N_QUEEN_PROBLEM, N_QUEEN_PROBLEM_OPT_EXAMPLE_TEST) {
+    ASSERT_EQ(NQueenProblem::methods_opt(1), 1);
+    ASSERT_EQ(NQueenProblem::methods_opt(2), 0);
+    ASSERT_EQ(NQueenProblem::methods_opt(3), 0);
+    ASSERT_EQ(NQueenProblem::methods_opt(8), 92);
+}
