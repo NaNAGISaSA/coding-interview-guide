@@ -22,3 +22,16 @@ TEST(ADJUST_AND_REPLACE_STR, ADJUST_AND_REPLACE_STR_Q1_EXAMPLE_TEST) {
     // clang-format on
     ASSERT_THAT(vec2, testing::ElementsAre('1', '%', '2', '0', '\0'));
 }
+
+TEST(ADJUST_AND_REPLACE_STR, ADJUST_AND_REPLACE_STR_Q2_EXAMPLE_TEST) {
+    std::vector<char> vec1{'q', 'w', '*', '*', '2', '3'}, vec2{'o', '*', 'f', '*', 'f', '*', 'e', '*', 'r'},
+        vec3{'*', '*', '*'}, vec4{'a', 'b', 'c'};
+    AdjustStr::adjust_str2(vec1);
+    AdjustStr::adjust_str2(vec2);
+    AdjustStr::adjust_str2(vec3);
+    AdjustStr::adjust_str2(vec4);
+    ASSERT_THAT(vec1, testing::ElementsAre('*', '*', 'q', 'w', '2', '3'));
+    ASSERT_THAT(vec2, testing::ElementsAre('*', '*', '*', '*', 'o', 'f', 'f', 'e', 'r'));
+    ASSERT_THAT(vec3, testing::ElementsAre('*', '*', '*'));
+    ASSERT_THAT(vec4, testing::ElementsAre('a', 'b', 'c'));
+}
