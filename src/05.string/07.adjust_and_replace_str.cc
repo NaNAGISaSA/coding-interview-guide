@@ -32,12 +32,12 @@ void AdjustStr::adjust_str1(std::vector<char>& vec) {
 
 void AdjustStr::adjust_str2(std::vector<char>& vec) {
     size_t index = vec.size() - 1;
-    for (size_t i = index; i <= vec.size() - 1; --i) {
+    for (size_t i = index; i < vec.size(); --i) {
         if (vec[i] != '*') {
             vec[index--] = vec[i];
         }
     }
-    if (index <= vec.size() - 1) {
+    if (index < vec.size()) {
         for (size_t i = index; i <= index; --i) {
             vec[i] = '*';
         }
