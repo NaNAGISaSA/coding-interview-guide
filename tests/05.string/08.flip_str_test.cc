@@ -23,3 +23,21 @@ TEST(FLIP_STR, FLIP_STR_Q2_EXAMPLE_TEST) {
     FlipStr::flip_str2(str2, 2);
     ASSERT_EQ(str2, "cdeab");
 }
+
+TEST(FLIP_STR, FLIP_STR_Q2_METHOD_TWO_EXAMPLE_TEST) {
+    std::string str1("abcdefg"), str2("abcde"), str3("abcdef");
+    FlipStr::flip_str2_method2(str1, 5);
+    ASSERT_EQ(str1, "fgabcde");
+    FlipStr::flip_str2_method2(str2, 5);
+    ASSERT_EQ(str2, "abcde");
+    FlipStr::flip_str2_method2(str2, 2);
+    ASSERT_EQ(str2, "cdeab");
+    FlipStr::flip_str2_method2(str2, 3);
+    ASSERT_EQ(str2, "abcde");
+    FlipStr::flip_str2_method2(str3, 2);
+    ASSERT_EQ(str3, "cdefab");
+    FlipStr::flip_str2_method2(str3, 4);
+    ASSERT_EQ(str3, "abcdef");
+    FlipStr::flip_str2_method2(str3, 3);
+    ASSERT_EQ(str3, "defabc");
+}

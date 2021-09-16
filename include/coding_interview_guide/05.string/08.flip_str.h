@@ -17,6 +17,7 @@ class FlipStr {
 public:
     static void flip_str1(std::string& str);
     static void flip_str2(std::string& str, size_t size);
+    static void flip_str2_method2(std::string& str, size_t size);
 };
 
 }  // namespace coding_interview_guide::string::flip_str
