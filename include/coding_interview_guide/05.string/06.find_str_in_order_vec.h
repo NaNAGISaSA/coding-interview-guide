@@ -16,7 +16,7 @@ namespace coding_interview_guide::string::find_str_in_order_vec {
 
 class FindStrInOrderVec {
 public:
-    static long find_index(const std::vector<std::string>& vec, std::string&& str);
+    static long find_index(const std::vector<std::string>& vec, const std::string& str);
 };
 
 }  // namespace coding_interview_guide::string::find_str_in_order_vec

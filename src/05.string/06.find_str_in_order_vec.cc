@@ -2,7 +2,7 @@
 
 namespace coding_interview_guide::string::find_str_in_order_vec {
 
-long FindStrInOrderVec::find_index(const std::vector<std::string>& vec, std::string&& str) {
+long FindStrInOrderVec::find_index(const std::vector<std::string>& vec, const std::string& str) {
     if (vec.size() == 0 || str == "null") {
         return -1;
     }
