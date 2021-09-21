@@ -38,4 +38,38 @@ std::string AddMinCharToGetPalindromeStr::get_palindrome_str(const std::string& 
     return recurse_get_palindrome_str(dp_matrix, str, 0, str_size - 1);
 }
 
+std::string AddMinCharToGetPalindromeStr::get_palindrome_str_advanced(const std::string& str,
+                                                                      const std::string& strlps) {
+    std::string result(2 * str.size() - strlps.size(), '\0');
+    size_t lstr = 0, rstr = str.size() - 1;
+    size_t ltmp = 0, rtmp = str.size() - 1;
+    size_t lstrlps = 0, rstrlps = strlps.size() - 1;
+    size_t lres = 0, rres = result.size() - 1;
+    while (lstrlps <= rstrlps) {
+        while (str[ltmp] != strlps[lstrlps]) {
+            ++ltmp;
+        }
+        while (str[rtmp] != strlps[rstrlps]) {
+            --rtmp;
+        }
+        // choose one mthod to make palindrome str elegantly
+        // AB~CD ABDC~CDBA
+        for (size_t i = 0; i < ltmp - lstr; ++i) {
+            result[lres++] = str[lstr + i];
+            result[rres--] = str[lstr++];
+        }
+        for (size_t i = 0; i < rstr - rtmp; ++i) {
+            result[rres--] = str[rstr - i];
+            result[lres++] = str[rstr--];
+        }
+        result[lres++] = str[lstr++];
+        result[rres--] = str[rstr--];
+        ltmp = lstr;
+        rtmp = rstr;
+        ++lstrlps;
+        --rstrlps;
+    }
+    return result;
+}
+
 }  // namespace coding_interview_guide::string::get_palindrome_str
