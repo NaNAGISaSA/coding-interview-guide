@@ -18,7 +18,7 @@ namespace coding_interview_guide::string::parenthese_str {
 class ParentheseStr {
 public:
     static bool is_valid(const std::string& str);
-    static std::string max_valid_str(const std::string& str);
+    static size_t max_valid_str(const std::string& str);
 };
 
 }  // namespace coding_interview_guide::string::parenthese_str
