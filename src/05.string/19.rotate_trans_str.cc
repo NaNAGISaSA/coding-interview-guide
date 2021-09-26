@@ -14,7 +14,6 @@ bool is_rotate_trans_str_internal(const std::string& str1,
     if (s1_begin == s1_end) {
         return str1[s1_begin] == str2[s2_begin];
     }
-
     for (size_t i = s1_begin; i < s1_end; ++i) {
         size_t size = i - s1_begin;
         if ((is_rotate_trans_str_internal(str1, s1_begin, i, str2, s2_begin, s2_begin + size) &&
