@@ -17,6 +17,7 @@ namespace coding_interview_guide::string::str_regex {
 class StrRegex {
 public:
     static bool match(const std::string& str, const std::string& exp);
+    static bool match_dp(const std::string& str, const std::string& exp);
 };
 
 }  // namespace coding_interview_guide::string::str_regex
