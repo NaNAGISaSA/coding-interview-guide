@@ -5,17 +5,15 @@
 using namespace coding_interview_guide::dynamic_programming::num_of_expr_combination;
 
 TEST(NUM_OF_EXPR_COMBINATION, NUM_OF_EXPR_COMBINATION_EXAMPLE_TEST) {
-    std::string str1("1^0|0|1"), str2("1"), str3("0|1"), str4("1&0|1^0&0|0^1^0");
-    ASSERT_EQ(NumOfExprCombination::number(str1, false), 2);
-    ASSERT_EQ(NumOfExprCombination::number(str2, false), 0);
-    ASSERT_EQ(NumOfExprCombination::number(str3, true), 1);
-    ASSERT_EQ(NumOfExprCombination::number(str4, true), 287);
+    ASSERT_EQ(NumOfExprCombination::number("1^0|0|1", false), 2);
+    ASSERT_EQ(NumOfExprCombination::number("1", false), 0);
+    ASSERT_EQ(NumOfExprCombination::number("0|1", true), 1);
+    ASSERT_EQ(NumOfExprCombination::number("1&0|1^0&0|0^1^0", true), 287);
 }
 
 TEST(NUM_OF_EXPR_COMBINATION, NUM_OF_EXPR_COMBINATION_DP_EXAMPLE_TEST) {
-    std::string str1("1^0|0|1"), str2("1"), str3("0|1"), str4("1&0|1^0&0|0^1^0");
-    ASSERT_EQ(NumOfExprCombination::number_dp(str1, false), 2);
-    ASSERT_EQ(NumOfExprCombination::number_dp(str2, false), 0);
-    ASSERT_EQ(NumOfExprCombination::number_dp(str3, true), 1);
-    ASSERT_EQ(NumOfExprCombination::number_dp(str4, true), 287);
+    ASSERT_EQ(NumOfExprCombination::number_dp("1^0|0|1", false), 2);
+    ASSERT_EQ(NumOfExprCombination::number_dp("1", false), 0);
+    ASSERT_EQ(NumOfExprCombination::number_dp("0|1", true), 1);
+    ASSERT_EQ(NumOfExprCombination::number_dp("1&0|1^0&0|0^1^0", true), 287);
 }

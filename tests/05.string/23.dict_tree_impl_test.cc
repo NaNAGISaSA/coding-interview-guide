@@ -11,8 +11,8 @@ TEST(DICT_TREE_IMPL, DICT_TREE_IMPL_EXAMPLE_TEST) {
     ASSERT_TRUE(impl.search("qwer"));
     ASSERT_TRUE(impl.search("qwe"));
     ASSERT_FALSE(impl.search("qw"));
-    ASSERT_EQ(impl.prefix_number("qw"), 2);
+    ASSERT_EQ(impl.prefix_number("qw"), 2U);
     impl.del("qwer");
     ASSERT_FALSE(impl.search("qwer"));
-    ASSERT_EQ(impl.prefix_number("q"), 1);
+    ASSERT_EQ(impl.prefix_number("q"), 1U);
 }

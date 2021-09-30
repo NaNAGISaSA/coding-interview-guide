@@ -14,17 +14,15 @@ TEST(HANOI_PROBLEM, HANOI_PROBLEM_ORIGIN_EXAMPLE_TEST) {
 }
 
 TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_EXAMPLE_TEST) {
-    std::vector<unsigned int> vec1{1, 1}, vec2{2, 1}, vec3{3, 3}, vec4{2, 2};
-    ASSERT_EQ(HanoiProblem::advanced_problem(vec1), 0);
-    ASSERT_EQ(HanoiProblem::advanced_problem(vec2), 1);
-    ASSERT_EQ(HanoiProblem::advanced_problem(vec3), 3);
-    ASSERT_EQ(HanoiProblem::advanced_problem(vec4), -1);
+    ASSERT_EQ(HanoiProblem::advanced_problem({1, 1}), 0);
+    ASSERT_EQ(HanoiProblem::advanced_problem({2, 1}), 1);
+    ASSERT_EQ(HanoiProblem::advanced_problem({3, 3}), 3);
+    ASSERT_EQ(HanoiProblem::advanced_problem({2, 2}), -1);
 }
 
 TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_DP_EXAMPLE_TEST) {
-    std::vector<unsigned int> vec1{1, 1}, vec2{2, 1}, vec3{3, 3}, vec4{2, 2};
-    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec1), 0);
-    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec2), 1);
-    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec3), 3);
-    ASSERT_EQ(HanoiProblem::advanced_problem_dp(vec4), -1);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp({1, 1}), 0);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp({2, 1}), 1);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp({3, 3}), 3);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp({2, 2}), -1);
 }
