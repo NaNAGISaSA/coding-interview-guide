@@ -1,5 +1,8 @@
 #include "07.bitwise/02.find_bigger_number.h"
 
+/*
+NOTE: In c++, it is a undefined behavior for left|right shift a negative number!
+*/
 namespace coding_interview_guide::bitwise::find_bigger_number {
 
 int FindBiggerNumber::number(int a, int b) {
