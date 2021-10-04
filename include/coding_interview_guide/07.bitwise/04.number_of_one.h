@@ -4,8 +4,6 @@
 /*
 【题目】
 给定一个32位整数n，返回该整数二进制形式1的个数。
-【要求】
-时间复杂度O（1），额外空间复杂度O（1）。
 */
 
 namespace coding_interview_guide::bitwise::number_of_one {
