@@ -30,7 +30,7 @@ int ArithmeticOperations::multi(int a, int b) {
     }
     while (b != 0) {
         if (b & 1) {
-            result += a;
+            result = add(result, a);
         }
         a <<= 1;
         b >>= 1;

@@ -25,4 +25,6 @@ TEST(ARITHMETIC_OPERATIONS, ARITHMETIC_OPERATIONS_MULTI_EXAMPLE_TEST) {
     ASSERT_EQ(ArithmeticOperations::multi(3, -4), -12);
     ASSERT_EQ(ArithmeticOperations::multi(-3, 4), -12);
     ASSERT_EQ(ArithmeticOperations::multi(-3, -4), 12);
+    ASSERT_EQ(ArithmeticOperations::multi(-3, 0), 0);
+    ASSERT_EQ(ArithmeticOperations::multi(0, -3), 0);
 }
