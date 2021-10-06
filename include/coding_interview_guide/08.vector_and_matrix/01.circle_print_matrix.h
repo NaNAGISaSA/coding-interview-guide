@@ -15,6 +15,7 @@ namespace coding_interview_guide::vector_and_matrix::circle_print_matrix {
 class PrintMatrix {
 public:
     static void circle_print(const std::vector<std::vector<int>>& matrix);
+    static void circle_print2(const std::vector<std::vector<int>>& matrix);
 };
 
 }  // namespace coding_interview_guide::vector_and_matrix::circle_print_matrix
