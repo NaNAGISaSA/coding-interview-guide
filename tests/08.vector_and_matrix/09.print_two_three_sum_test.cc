@@ -18,12 +18,12 @@ TEST(PRINT_TWO_THREE_SUM, PRINT_TWO_SUM_EXAMPLE_TEST_TWO) {
 
 TEST(PRINT_TWO_THREE_SUM, PRINT_THREE_SUM_EXAMPLE_TEST_ONE) {
     testing::internal::CaptureStdout();
-    PrintTwoThreeSum::print_three({-8, -4, -3, 0, 1, 2, 4, 5, 8}, 10);
-    ASSERT_EQ(testing::internal::GetCapturedStdout(), "-3, 5, 8\n0, 2, 8\n1, 4, 5\n");
+    PrintTwoThreeSum::print_three({-8, -4, -3, 0, 1, 2, 4, 5, 8, 9}, 10);
+    ASSERT_EQ(testing::internal::GetCapturedStdout(), "-4, 5, 9\n-3, 4, 9\n-3, 5, 8\n0, 1, 9\n0, 2, 8\n1, 4, 5\n");
 }
 
 TEST(PRINT_TWO_THREE_SUM, PRINT_THREE_SUM_EXAMPLE_TEST_TWO) {
     testing::internal::CaptureStdout();
-    PrintTwoThreeSum::print_three({0, 1, 1, 2, 4, 4, 4, 5, 8}, 10);
-    ASSERT_EQ(testing::internal::GetCapturedStdout(), "1, 4, 5\n");
+    PrintTwoThreeSum::print_three({0, 1, 1, 2, 4, 4, 4, 5}, 10);
+    ASSERT_EQ(testing::internal::GetCapturedStdout(), "1, 4, 5\n2, 4, 4\n");
 }
