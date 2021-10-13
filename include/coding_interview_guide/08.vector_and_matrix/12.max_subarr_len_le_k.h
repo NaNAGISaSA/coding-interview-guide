@@ -18,6 +18,7 @@ namespace coding_interview_guide::vector_and_matrix::max_subarr_len_le_k {
 class MaxSubarrLenLeK {
 public:
     static unsigned int max_len(const std::vector<int>& vec, int k);
+    static unsigned int max_len_sliding_window(const std::vector<int>& vec, int k);
 };
 
 }  // namespace coding_interview_guide::vector_and_matrix::max_subarr_len_le_k
