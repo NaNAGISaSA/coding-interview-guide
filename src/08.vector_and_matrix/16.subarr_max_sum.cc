@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <limits>
 
 #include "08.vector_and_matrix/16.subarr_max_sum.h"
 
