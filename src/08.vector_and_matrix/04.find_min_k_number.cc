@@ -33,35 +33,30 @@ std::vector<int> FindMinKNumber::min_number(const std::vector<int>& vec, unsigne
         }
     };
 
+    auto heapify = [&max_heap, &swap, heap_size = k](size_t head_index) {
+        size_t left = 2 * head_index + 1, right = 2 * head_index + 2;
+        size_t largest_index = head_index;
+        while (left < heap_size) {
+            if (max_heap[head_index] < max_heap[left]) {
+                largest_index = left;
+            }
+            if (right < heap_size && max_heap[largest_index] < max_heap[right]) {
+                largest_index = right;
+            }
+            if (largest_index == head_index) {
+                return;
+            } else {
+                swap(largest_index, head_index);
+            }
+            head_index = largest_index;
+            left = 2 * head_index + 1;
+            right = 2 * head_index + 2;
+        }
+    };
+
     for (size_t i = 0; i < k; ++i) {
         heap_insert(i, vec[i]);
     }
-
-    auto heapify = [&max_heap, &swap, heap_size = k](size_t index) {
-        while (true) {
-            if (2 * index + 1 >= heap_size) {
-                return;
-            }
-            if (2 * index + 2 == heap_size) {
-                if (max_heap[index] > max_heap[2 * index + 1]) {
-                    return;
-                }
-                swap(index, 2 * index + 1);
-                index = 2 * index + 1;
-            } else {
-                if (max_heap[index] > max_heap[2 * index + 1] && max_heap[index] > max_heap[2 * index + 2]) {
-                    return;
-                }
-                if (max_heap[2 * index + 1] > max_heap[2 * index + 2]) {
-                    swap(index, 2 * index + 1);
-                    index = 2 * index + 1;
-                } else {
-                    swap(index, 2 * index + 2);
-                    index = 2 * index + 2;
-                }
-            }
-        }
-    };
 
     for (size_t i = k; i < vec_size; ++i) {
         if (vec[i] < max_heap[0]) {
