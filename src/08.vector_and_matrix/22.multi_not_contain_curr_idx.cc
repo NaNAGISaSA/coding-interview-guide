@@ -37,9 +37,8 @@ std::vector<int> MultiNotContainCurrIdx::multi_result_adv(const std::vector<int>
     for (size_t i = vec_size - 2; i < vec_size; --i) {
         result[i] = vec[i] * result[i + 1];
     }
-    result[0] = result[1];
-    int acc_result = vec[0];
-    for (size_t i = 1; i < vec_size - 1; ++i) {
+    int acc_result = 1;
+    for (size_t i = 0; i < vec_size - 1; ++i) {
         result[i] = acc_result * result[i + 1];
         acc_result *= vec[i];
     }
