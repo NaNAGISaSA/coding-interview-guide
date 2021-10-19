@@ -16,3 +16,16 @@ TEST(ADJUST_ARR_PARTITION, ADJUST_ARR_PARTITION_Q1_EXAMPLE_TEST) {
         ASSERT_EQ(truth2[i], vec2[i]);
     }
 }
+
+TEST(ADJUST_ARR_PARTITION, ADJUST_ARR_PARTITION_Q2_EXAMPLE_TEST) {
+    std::vector<int> vec1{2, 0, 1, 2, 0}, vec2{0, 1, 1, 2};
+    std::vector<int> truth1{0, 0, 1, 2, 2}, truth2{0, 1, 1, 2};
+    AdjustArrPartition::adjust2(vec1);
+    AdjustArrPartition::adjust2(vec2);
+    for (size_t i = 0; i < truth1.size(); ++i) {
+        ASSERT_EQ(truth1[i], vec1[i]);
+    }
+    for (size_t i = 0; i < truth2.size(); ++i) {
+        ASSERT_EQ(truth2[i], vec2[i]);
+    }
+}

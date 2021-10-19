@@ -15,4 +15,21 @@ void AdjustArrPartition::adjust1(std::vector<int>& vec) {
     }
 }
 
+void AdjustArrPartition::adjust2(std::vector<int>& vec) {
+    size_t vec_size = vec.size();
+    if (vec_size < 2) {
+        return;
+    }
+    long left = -1, right = vec_size, index = 0;
+    while (index != right) {
+        if (vec[index] == 0) {
+            std::swap(vec[++left], vec[index++]);
+        } else if (vec[index] == 2) {
+            std::swap(vec[--right], vec[index]);
+        } else {
+            ++index;
+        }
+    }
+}
+
 }  // namespace coding_interview_guide::vector_and_matrix::adjust_arr_partition
