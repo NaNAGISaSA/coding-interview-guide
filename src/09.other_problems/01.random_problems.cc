@@ -36,7 +36,12 @@ int RandomProblems::random_one_to_six() {
         } while (num == random01p());
         return num;
     };
-    auto equal03 = []() {};
+    auto equal03 = [&equal01]() { return equal01() + 2 * equal01(); };
+    int num = 0;
+    do {
+        num = equal03() + equal03() * 4;
+    } while (num > 11);
+    return 1 + num % 6;
 }
 
 }  // namespace coding_interview_guide::other_problems::random_problems
