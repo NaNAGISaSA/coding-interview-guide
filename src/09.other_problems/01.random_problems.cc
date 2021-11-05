@@ -16,12 +16,18 @@ int random_one_to_five() {
     return random_internal(1, 5);
 }
 
-int random01p() {
+int random_zero_or_one() {
     return random_internal(0, 1);
 }
 
 size_t random1n(size_t n) {
     return static_cast<size_t>(random_internal(1, static_cast<int>(n)));
+}
+
+double random01() {
+    std::mt19937 generator(1);
+    std::uniform_real_distribution<double> distrib(0.0, 1.0);
+    return distrib(generator);
 }
 }  // namespace
 
@@ -37,8 +43,8 @@ int RandomProblems::random_one_to_six() {
     auto equal01 = []() {
         int num = 0;
         do {
-            num = random01p();
-        } while (num == random01p());
+            num = random_zero_or_one();
+        } while (num == random_zero_or_one());
         return num;
     };
     auto equal03 = [&equal01]() { return equal01() + 2 * equal01(); };
@@ -70,6 +76,17 @@ std::vector<size_t> ReservoirAlgorithm::select(size_t k, size_t n) {
         if (random1n(i) <= k) {
             result[random1n(k) - 1] = i;
         }
+    }
+    return result;
+}
+
+double AdjustRandom::get_number(unsigned int k) {
+    if (k == 0) {
+        return 0.0;
+    }
+    double result = -1.0;
+    for (unsigned int i = 0U; i < k; ++i) {
+        result = std::max(result, random01());
     }
     return result;
 }
