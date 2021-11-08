@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <limits>
 
 #include "09.other_problems/15.min_no_possible_sum.h"
@@ -30,7 +31,22 @@ unsigned int MinNoPossibleSum::min_value(const std::vector<unsigned int>& vec) {
     return max_sum + 1U;
 }
 
-// unsigned int MinNoPossibleSum::min_value_adv(const std::vector<unsigned int>& vec) {
-// }
+unsigned int MinNoPossibleSum::min_value_adv(const std::vector<unsigned int>& vec) {
+    size_t vec_size = vec.size();
+    if (vec_size == 0) {
+        return 0U;
+    }
+    std::vector<unsigned int> vec_copy = vec;
+    std::sort(vec_copy.begin(), vec_copy.end());
+    unsigned int range = 0U;
+    for (size_t i = 0; i < vec_size; ++i) {
+        if (vec_copy[i] > range + 1) {
+            return range + 1;
+        } else {
+            range += vec_copy[i];
+        }
+    }
+    return range + 1;
+}
 
 }  // namespace coding_interview_guide::other_problems::min_no_possible_sum
