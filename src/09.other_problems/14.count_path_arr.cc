@@ -1,3 +1,7 @@
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+
 #include "09.other_problems/14.count_path_arr.h"
 
 namespace coding_interview_guide::other_problems::count_path_arr {
@@ -63,6 +67,53 @@ void CountPathArr::count_path_arr(std::vector<int>& path) {
 
     path_to_count_arr();
     get_total_count();
+}
+
+void CountPathArr::common_bfs(std::vector<int>& path) {
+    if (path.size() == 0) {
+        return;
+    }
+    std::unordered_map<int, std::vector<int>> graph;
+    int cap = -1;
+    for (int i = 0; i < static_cast<int>(path.size()); ++i) {
+        if (graph.find(path[i]) == graph.end()) {
+            graph.insert({path[i], {i}});
+        } else {
+            graph[path[i]].push_back(i);
+        }
+        if (path[i] == i) {
+            cap = i;
+        }
+        path[i] = 0;
+    }
+    std::unordered_set<int> visited;
+    std::queue<int> queue;
+    queue.push(cap);
+    size_t distance = 0;
+    size_t curr_distance_city_number = 1;
+    while (queue.size()) {
+        int city = queue.front();
+        queue.pop();
+        --curr_distance_city_number;
+        if (visited.find(city) != visited.end()) {
+            if (curr_distance_city_number == 0) {
+                curr_distance_city_number = queue.size();
+                ++distance;
+            }
+            continue;
+        }
+        visited.insert(city);
+        ++path[distance];
+        if (graph.find(city) != graph.end()) {
+            for (size_t i = 0; i < graph[city].size(); ++i) {
+                queue.push(graph[city][i]);
+            }
+        }
+        if (curr_distance_city_number == 0) {
+            curr_distance_city_number = queue.size();
+            ++distance;
+        }
+    }
 }
 
 }  // namespace coding_interview_guide::other_problems::count_path_arr

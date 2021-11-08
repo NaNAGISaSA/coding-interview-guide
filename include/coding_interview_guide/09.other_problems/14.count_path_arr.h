@@ -19,6 +19,7 @@ namespace coding_interview_guide::other_problems::count_path_arr {
 class CountPathArr {
 public:
     static void count_path_arr(std::vector<int>& path);
+    static void common_bfs(std::vector<int>& path);
 };
 
 }  // namespace coding_interview_guide::other_problems::count_path_arr

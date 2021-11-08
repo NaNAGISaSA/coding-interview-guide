@@ -10,3 +10,9 @@ TEST(COUNT_PATH_ARR, COUNT_PATH_ARR_EXAMPLE_TEST) {
     CountPathArr::count_path_arr(path);
     ASSERT_THAT(path, testing::ElementsAre(1, 1, 3, 2, 3, 0, 0, 0, 0, 0));
 }
+
+TEST(COUNT_PATH_ARR, COUNT_PATH_ARR_BFS_EXAMPLE_TEST) {
+    std::vector<int> path{9, 1, 4, 9, 0, 4, 8, 9, 0, 1};
+    CountPathArr::common_bfs(path);
+    ASSERT_THAT(path, testing::ElementsAre(1, 1, 3, 2, 3, 0, 0, 0, 0, 0));
+}
