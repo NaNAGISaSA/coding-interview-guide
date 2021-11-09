@@ -5,8 +5,31 @@
 
 namespace coding_interview_guide::other_problems::str_num_relationship {
 
-// std::string StrNumRelationship::num_to_str(const std::vector<char>& vec, unsigned int num) {
-// }
+// 伪K进制，需要注意的一点是每一位必须>=1，因此不能从高位直接进行除余操作
+std::string StrNumRelationship::num_to_str(const std::vector<char>& vec, unsigned int num) {
+    unsigned int vec_size = static_cast<unsigned int>(vec.size());
+    if (vec_size == 0) {
+        return "";
+    }
+    unsigned int str_num = 0, multi = 1;
+    while (num >= multi) {
+        ++str_num;
+        num -= multi;
+        multi *= vec_size;
+    }
+    std::string result(str_num, vec[0]);
+    multi /= vec_size;
+    unsigned int index = 0;
+    while (num != 0) {
+        if (num >= multi) {
+            result[index] = vec[num / multi];
+            num %= multi;
+        }
+        ++index;
+        multi /= vec_size;
+    }
+    return result;
+}
 
 unsigned int StrNumRelationship::str_to_num(const std::vector<char>& vec, const std::string& str) {
     unsigned int vec_size = static_cast<unsigned int>(vec.size());
