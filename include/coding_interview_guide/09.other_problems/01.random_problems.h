@@ -18,6 +18,9 @@
 假设函数random等概率随机返回一个在[0, 1)范围上的数，那么我们知道，在[0, x)区间上的数出现的
 概率为x(0 < x <= 1)。给定一个大于0的整数k，并且可以使用random函数，请实现一个函数依然返回
 [0, 1)范围上的数，但是在[0, x)区间上的数出现的概率为x^k(0 < x <= 1)。
+
+【题目】
+给定一个长度为N且没有重复元素的数组arr，实现函数等概率随机打印arr中的M个数。
 */
 
 #include <vector>
@@ -38,6 +41,11 @@ public:
 class AdjustRandom {
 public:
     static double get_number(unsigned int k);
+};
+
+class PrintArr {
+public:
+    static void print(std::vector<int>& vec, size_t m);
 };
 
 }  // namespace coding_interview_guide::other_problems::random_problems

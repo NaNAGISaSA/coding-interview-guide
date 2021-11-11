@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 #include <random>
 
 #include "09.other_problems/01.random_problems.h"
@@ -89,6 +90,21 @@ double AdjustRandom::get_number(unsigned int k) {
         result = std::max(result, random01());
     }
     return result;
+}
+
+void PrintArr::print(std::vector<int>& vec, size_t m) {
+    size_t vec_size = vec.size();
+    if (vec_size == 0 || vec_size < m) {
+        return;
+    }
+    while (m != 0) {
+        size_t index = random1n(vec_size);
+        std::cout << vec[index - 1] << " ";
+        std::swap(vec[index - 1], vec[vec_size - 1]);
+        --vec_size;
+        --m;
+    }
+    std::cout << std::endl;
 }
 
 }  // namespace coding_interview_guide::other_problems::random_problems
