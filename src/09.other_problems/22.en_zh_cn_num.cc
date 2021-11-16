@@ -7,7 +7,7 @@ namespace coding_interview_guide::other_problems::en_zh_cn_num {
 
 namespace {
 std::string digit1(int number) {
-    std::vector<std::string> vec{"一", "二", "三", "四", "五", "六", "七", "八", "九"};
+    static std::vector<std::string> vec{"一", "二", "三", "四", "五", "六", "七", "八", "九"};
     return vec[number - 1];
 }
 
@@ -66,7 +66,7 @@ std::string digit5to8(int number) {
     return result + (number < 1000 ? "零" + digit3(number) : digit4(number));
 }
 
-std::string digit9upper(int number) {
+std::string digit9_upper(int number) {
     if (number < 100'000'000) {
         return digit5to8(number);
     }
@@ -86,9 +86,82 @@ std::string EnZhCnNum::num_to_zh_cn(int num) {
     if (num == std::numeric_limits<int>::min()) {
         num = -1 * (num + 1);
         int last = num % 10;
-        return "负" + digit9upper(num - last) + digit1(last + 1);
+        return "负" + digit9_upper(num - last) + digit1(last + 1);
     }
-    return num < 0 ? "负" + digit9upper(-1 * num) : digit9upper(num);
+    return num < 0 ? "负" + digit9_upper(-1 * num) : digit9_upper(num);
+}
+
+namespace {
+std::string digit_1_19(int num) {
+    static std::vector<std::string> vec{"One",
+                                        "Two",
+                                        "Three",
+                                        "Four",
+                                        "Five",
+                                        "Six",
+                                        "Seven",
+                                        "Eight",
+                                        "Nine",
+                                        "Ten",
+                                        "Eelven",
+                                        "Twelve",
+                                        "Thirteen",
+                                        "Fourteen",
+                                        "Fifteen",
+                                        "Sixteen",
+                                        "Seventeen",
+                                        "Eighteen",
+                                        "Nineteen"};
+    return vec[num - 1];
+}
+
+std::string en_digit2(int num) {
+    if (num < 20) {
+        return digit_1_19(num);
+    }
+    static std::vector<std::string> vec{"Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    std::string result = vec[-2 + num / 10];
+    return num % 10 == 0 ? result : result + " " + digit_1_19(num % 10);
+}
+
+std::string en_digit3(int num) {
+    if (num < 100) {
+        return en_digit2(num);
+    }
+    std::string result = digit_1_19(num / 100) + " Hundred";
+    return num % 100 == 0 ? result : result + " " + en_digit2(num % 100);
+}
+}  // namespace
+
+std::string EnZhCnNum::num_to_en(int num) {
+    if (num == 0) {
+        return "Zero";
+    }
+    std::string result = num < 0 ? "Negative, " : "";
+    if (num == std::numeric_limits<int>::min()) {
+        result += "Two Billion, ";
+        num = -1 * (num + 2'000'000'000);
+    }
+    if (num < 0) {
+        num *= -1;
+    }
+    int start = 1'000'000'000;
+    int index = 0;
+    std::vector<std::string> vec{" Billion", " Million", " Thousand", ""};
+    while (num != 0) {
+        if (num < start) {
+            start /= 1000;
+            ++index;
+            continue;
+        }
+        result = result + en_digit3(num / start) + vec[index++];
+        num %= start;
+        if (num != 0) {
+            result += ", ";
+        }
+        start /= 1000;
+    }
+    return result;
 }
 
 }  // namespace coding_interview_guide::other_problems::en_zh_cn_num

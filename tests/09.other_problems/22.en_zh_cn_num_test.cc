@@ -4,7 +4,7 @@
 
 using namespace coding_interview_guide::other_problems::en_zh_cn_num;
 
-TEST(EN_ZH_CN_NUM, EN_ZH_CN_NUM_EXAMPLE_TEST) {
+TEST(EN_ZH_CN_NUM, NUM_TO_ZH_CN_EXAMPLE_TEST) {
     ASSERT_EQ(EnZhCnNum::num_to_zh_cn(0), "零");
     ASSERT_EQ(EnZhCnNum::num_to_zh_cn(19), "十九");
     ASSERT_EQ(EnZhCnNum::num_to_zh_cn(79), "七十九");
@@ -21,4 +21,17 @@ TEST(EN_ZH_CN_NUM, EN_ZH_CN_NUM_EXAMPLE_TEST) {
     ASSERT_EQ(EnZhCnNum::num_to_zh_cn(-6840), "负六千八百四十");
     ASSERT_EQ(EnZhCnNum::num_to_zh_cn(-3450069), "负三百四十五万零六十九");
     ASSERT_EQ(EnZhCnNum::num_to_zh_cn(-2'147'483'648), "负二十一亿四千七百四十八万三千六百四十八");
+}
+
+TEST(EN_ZH_CN_NUM, NUM_TO_EN_EXAMPLE_TEST) {
+    ASSERT_EQ(EnZhCnNum::num_to_en(0), "Zero");
+    ASSERT_EQ(EnZhCnNum::num_to_en(319), "Three Hundred Nineteen");
+    ASSERT_EQ(EnZhCnNum::num_to_en(676'052), "Six Hundred Seventy Six Thousand, Fifty Two");
+    ASSERT_EQ(EnZhCnNum::num_to_en(109'006'008), "One Hundred Nine Million, Six Thousand, Eight");
+    ASSERT_EQ(EnZhCnNum::num_to_en(2'009'016'008), "Two Billion, Nine Million, Sixteen Thousand, Eight");
+    ASSERT_EQ(EnZhCnNum::num_to_en(-109'280'012),
+              "Negative, One Hundred Nine Million, Two Hundred Eighty Thousand, Twelve");
+    ASSERT_EQ(EnZhCnNum::num_to_en(-2'147'483'648),
+              "Negative, Two Billion, One Hundred Forty Seven Million, Four Hundred Eighty Three Thousand, Six Hundred "
+              "Forty Eight");
 }
