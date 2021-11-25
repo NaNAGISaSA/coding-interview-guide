@@ -29,6 +29,7 @@ namespace coding_interview_guide::other_problems::drop_piece_problem {
 class DropPieceProblem {
 public:
     static unsigned int minimum_times(unsigned int height, unsigned int piece_num);
+    static unsigned int minimum_times_opt(unsigned int height, unsigned int piece_num);
 };
 
 }  // namespace coding_interview_guide::other_problems::drop_piece_problem

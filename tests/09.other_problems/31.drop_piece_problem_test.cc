@@ -9,3 +9,9 @@ TEST(DROP_PIECE_PROBLEM, DROP_PIECE_PROBLEM_EXAMPLE_TEST) {
     ASSERT_EQ(DropPieceProblem::minimum_times(3, 2), 2);
     ASSERT_EQ(DropPieceProblem::minimum_times(105, 2), 14);
 }
+
+TEST(DROP_PIECE_PROBLEM, DROP_PIECE_PROBLEM_OPT_EXAMPLE_TEST) {
+    ASSERT_EQ(DropPieceProblem::minimum_times_opt(10, 1), 10);
+    ASSERT_EQ(DropPieceProblem::minimum_times_opt(3, 2), 2);
+    ASSERT_EQ(DropPieceProblem::minimum_times_opt(105, 2), 14);
+}
