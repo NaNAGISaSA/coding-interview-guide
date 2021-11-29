@@ -15,6 +15,7 @@ namespace coding_interview_guide::other_problems::painter_problem {
 class PainterProblem {
 public:
     static unsigned int min_time(const std::vector<unsigned int>& vec, unsigned int num);
+    static unsigned int min_time_opt(const std::vector<unsigned int>& vec, unsigned int num);
 };
 
 }  // namespace coding_interview_guide::other_problems::painter_problem

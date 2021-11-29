@@ -9,3 +9,9 @@ TEST(PAINTER_PROBLEM, PAINTER_PROBLEM_EXAMPLE_TEST) {
     ASSERT_EQ(PainterProblem::min_time({1, 1, 1, 4, 3}, 3), 4);
     ASSERT_EQ(PainterProblem::min_time({99, 82, 44, 35, 3}, 2), 164);
 }
+
+TEST(PAINTER_PROBLEM, PAINTER_PROBLEM_OPT_EXAMPLE_TEST) {
+    ASSERT_EQ(PainterProblem::min_time_opt({3, 1, 4}, 2), 4);
+    ASSERT_EQ(PainterProblem::min_time_opt({1, 1, 1, 4, 3}, 3), 4);
+    ASSERT_EQ(PainterProblem::min_time_opt({99, 82, 44, 35, 3}, 2), 164);
+}
