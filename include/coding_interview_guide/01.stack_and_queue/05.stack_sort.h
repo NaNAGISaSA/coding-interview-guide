@@ -12,11 +12,10 @@
 
 namespace coding_interview_guide::stack_and_queue::stack_sort {
 
-template <typename T>
 class SortStack {
 public:
-    static void sort_stack(std::stack<T>&);
-    static void sort_stack_demo(std::stack<T>&);
+    static void sort_stack(std::stack<int>&);
+    static void sort_stack_opt(std::stack<int>&);
 };
 
 }  // namespace coding_interview_guide::stack_and_queue::stack_sort
