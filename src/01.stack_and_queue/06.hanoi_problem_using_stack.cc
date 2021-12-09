@@ -102,16 +102,16 @@ int HanoiProblem::stack_method(int num) {
         current_action = choose_next_action(left, middle, right, current_action);
         ++step;
         if (current_action == Action::LM) {
-            middle.push(std::move(left.top()));
+            middle.push(left.top());
             left.pop();
         } else if (current_action == Action::ML) {
-            left.push(std::move(middle.top()));
+            left.push(middle.top());
             middle.pop();
         } else if (current_action == Action::MR) {
-            right.push(std::move(middle.top()));
+            right.push(middle.top());
             middle.pop();
         } else {
-            middle.push(std::move(right.top()));
+            middle.push(right.top());
             right.pop();
         }
     }

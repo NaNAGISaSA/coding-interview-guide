@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <stack>
 
 #include "01.stack_and_queue/09.max_sub_matrix.h"
@@ -8,14 +9,10 @@ size_t get_current_line_max_region(const std::vector<int>& input) {
     size_t max_value = 0;
 
     auto calculate_current_region = [&monotone_stack, &max_value, &input](size_t index) {
-        size_t current_region = 0;
-        size_t& pop_top = monotone_stack.top();
+        size_t height_index = monotone_stack.top();
         monotone_stack.pop();
-        current_region = monotone_stack.size() ? (index - monotone_stack.top() - 1) * input[pop_top] :
-                                                 (index - (-1) - 1) * input[pop_top];
-        if (current_region > pop_top) {
-            max_value = current_region;
-        }
+        size_t length = monotone_stack.size() ? (index - monotone_stack.top() - 1) : (index - (-1) - 1);
+        max_value = std::max(max_value, length * input[height_index]);
     };
 
     for (size_t i = 0; i < input.size(); ++i) {
@@ -43,10 +40,7 @@ size_t MaxSubMatrix::max_sub_matirx(const std::vector<std::vector<int>>& input) 
         for (size_t j = 0; j < input[i].size(); ++j) {
             internal_vec[j] = input[i][j] == 0 ? 0 : internal_vec[j] + 1;
         }
-        size_t current_line_max_region = get_current_line_max_region(internal_vec);
-        if (current_line_max_region > max_region) {
-            max_region = current_line_max_region;
-        }
+        max_region = std::max(max_region, get_current_line_max_region(internal_vec));
     }
     return max_region;
 }
