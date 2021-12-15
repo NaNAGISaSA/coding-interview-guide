@@ -22,20 +22,16 @@ Node<int>* DeleteCertainNode::delete_middle_node(Node<int>* head) {
 }
 
 Node<int>* DeleteCertainNode::delete_certain_node(Node<int>* head, unsigned int a, unsigned int b) {
-    if (head == nullptr) {
+    if (head == nullptr || a == 0 || a > b) {
         return head;
     }
-    float div = static_cast<float>(a) / static_cast<float>(b);
-    if (div == 0.0F || div > 1.0F) {
-        return head;
-    }
-    int num = 1;
+    int num = 0;
     Node<int>* curr_head = head;
-    while (curr_head->next != nullptr) {
+    while (curr_head != nullptr) {
         ++num;
         curr_head = curr_head->next;
     }
-    int index = static_cast<int>(std::ceil(div * static_cast<float>(num)));
+    int index = static_cast<int>(std::ceil(static_cast<float>(a) * static_cast<float>(num) / static_cast<float>(b)));
     if (index == 1) {
         return head->next;
     }

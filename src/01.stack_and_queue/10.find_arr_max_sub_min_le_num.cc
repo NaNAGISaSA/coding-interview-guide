@@ -5,6 +5,7 @@
 namespace coding_interview_guide::stack_and_queue::find_arr_max_sub_min_le_num {
 
 /*
+核心分析点：
 对于数组arr[i, j]，如果其满足max(arr[i, j]) - min(arr[i, j]) <= num，则其每一个子数组也满足
 对于数组arr[i, j]，如果其满足max(arr[i, j]) - min(arr[i, j]) > num，则包含它的每一个数组也满足
 */
