@@ -1,8 +1,8 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+#include "00.linked_list_test_utils.h"
 #include "02.linked_list/01.ordered_linked_lists_public_parts.h"
-#include "linked_list_test_utils.h"
 
 using namespace coding_interview_guide::linked_list;
 using namespace coding_interview_guide::linked_list::ordered_linked_list_public_part;

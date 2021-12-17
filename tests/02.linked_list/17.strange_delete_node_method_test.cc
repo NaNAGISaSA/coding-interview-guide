@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
+#include "00.linked_list_test_utils.h"
 #include "02.linked_list/17.strange_delete_node_method.h"
-#include "linked_list_test_utils.h"
 
 using namespace coding_interview_guide::linked_list;
 using namespace coding_interview_guide::linked_list::strange_delete_node_method;

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
+#include "00.linked_list_test_utils.h"
 #include "02.linked_list/20.reorder_linked_list_with_lr_part.h"
-#include "linked_list_test_utils.h"
 
 using namespace coding_interview_guide::linked_list;
 using namespace coding_interview_guide::linked_list::reorder_linked_list_with_lr_part;

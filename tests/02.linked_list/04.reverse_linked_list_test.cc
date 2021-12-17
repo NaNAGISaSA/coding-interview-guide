@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
+#include "00.linked_list_test_utils.h"
 #include "02.linked_list/04.reverse_linked_list.h"
-#include "linked_list_test_utils.h"
 
 using namespace coding_interview_guide::linked_list;
 using namespace coding_interview_guide::linked_list::reverse_linked_list;
