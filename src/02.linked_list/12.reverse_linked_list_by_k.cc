@@ -7,50 +7,42 @@ Node<int>* ReverseLinkedListByK::reverse_linked_list(Node<int>* head, int k) {
         return head;
     }
 
+    auto reverse_k = [](Node<int>* reverse_head, int num_node) {
+        Node<int>* reverse_prev = nullptr;
+        Node<int>* reverse_next = nullptr;
+        while (num_node-- != 0) {
+            reverse_next = reverse_head->next;
+            reverse_head->next = reverse_prev;
+            reverse_prev = reverse_head;
+            reverse_head = reverse_next;
+        }
+    };
+
+    Node<int>* kprev = nullptr;
+    Node<int>* khead = head;
+    Node<int>* ktail = nullptr;
+    Node<int>* current = head;
     int copy_k = k;
-    Node<int>* curr_head = head;
-    Node<int>* result = curr_head;
-    while (--copy_k) {
-        curr_head = curr_head->next;
-    }
-    result = curr_head;
-    copy_k = k;
-    curr_head = head;
-
-    Node<int>* block_prev = nullptr;
-    Node<int>* block_head = nullptr;
-    Node<int>* block_tail = nullptr;
-    while (curr_head != nullptr) {
-        if (copy_k == k) {
-            block_head = curr_head;
-        }
+    while (current != nullptr) {
         if (--copy_k == 0) {
-            block_tail = curr_head;
-            copy_k = k;
-            if (block_prev == nullptr) {
-                block_prev = block_head;
+            ktail = current->next;
+            reverse_k(khead, k);
+            if (kprev != nullptr) {
+                kprev->next = current;
             } else {
-                block_prev->next = block_tail;
-                block_prev = block_head;
+                head = current;
             }
-            curr_head = curr_head->next;
-            Node<int>* prev = nullptr;
-            Node<int>* next = nullptr;
-            while (block_head != curr_head) {
-                next = block_head->next;
-                block_head->next = prev;
-                prev = block_head;
-                block_head = next;
-            }
+            kprev = khead;
+            khead = ktail;
+            current = ktail;
+            copy_k = k;
         } else {
-            curr_head = curr_head->next;
+            current = current->next;
         }
     }
 
-    if (block_prev != nullptr && block_prev->next == nullptr && copy_k != k) {
-        block_prev->next = block_head;
-    }
-    return result;
+    kprev->next = khead;
+    return head;
 }
 
 }  // namespace coding_interview_guide::linked_list::reverse_linked_list_by_k

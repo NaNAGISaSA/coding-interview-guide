@@ -24,3 +24,17 @@ TEST(REVERSE_LINKED_LIST_BY_K, REVERSE_LINKED_LIST_BY_K_EXAMPLE_TEST) {
     ASSERT_EQ(head2_->next->next->next->val, 3);
     ASSERT_EQ(head2_->next->next->next->next, nullptr);
 }
+
+TEST(REVERSE_LINKED_LIST_BY_K, REVERSE_LINKED_LIST_BY_K_REVIEW_TEST) {
+    LinkedListRAII<int> wrapper;
+    auto head1 = wrapper.make_linked_list(1, 2, 3, 4, 5, 6, 7);
+    auto head1_ = ReverseLinkedListByK::reverse_linked_list(head1, 3);
+    ASSERT_EQ(head1_->val, 3);
+    ASSERT_EQ(head1_->next->val, 2);
+    ASSERT_EQ(head1_->next->next->val, 1);
+    ASSERT_EQ(head1_->next->next->next->val, 6);
+    ASSERT_EQ(head1_->next->next->next->next->val, 5);
+    ASSERT_EQ(head1_->next->next->next->next->next->val, 4);
+    ASSERT_EQ(head1_->next->next->next->next->next->next->val, 7);
+    ASSERT_EQ(head1_->next->next->next->next->next->next->next, nullptr);
+}
