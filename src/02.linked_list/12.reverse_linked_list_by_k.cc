@@ -41,7 +41,9 @@ Node<int>* ReverseLinkedListByK::reverse_linked_list(Node<int>* head, int k) {
         }
     }
 
-    kprev->next = khead;
+    if (kprev != nullptr) {
+        kprev->next = khead;
+    }
     return head;
 }
 

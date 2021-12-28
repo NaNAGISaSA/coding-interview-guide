@@ -8,7 +8,7 @@ using namespace coding_interview_guide::linked_list::select_sort_linked_list;
 
 TEST(SELECT_SORT_LINKED_LIST, SELECT_SORT_LINKED_LIST_EXAMPLE_TEST) {
     LinkedListRAII<int> wrapper;
-    auto head = wrapper.make_linked_list(3, 2, 4, 1, 5);
+    auto head = wrapper.make_linked_list(4, 2, 3, 1, 5);
     auto head_ = SelectSortLinkedList::select_sort(head);
     ASSERT_EQ(head_->val, 1);
     ASSERT_EQ(head_->next->val, 2);
@@ -22,4 +22,12 @@ TEST(SELECT_SORT_LINKED_LIST, SELECT_SORT_LINKED_LIST_EXAMPLE_TEST) {
     ASSERT_EQ(head2_->next->val, 2);
     ASSERT_EQ(head2_->next->next->val, 3);
     ASSERT_EQ(head2_->next->next->next, nullptr);
+}
+
+TEST(SELECT_SORT_LINKED_LIST, SELECT_SORT_LINKED_LIST_REVIEW_TEST) {
+    LinkedListRAII<int> wrapper;
+    auto head = wrapper.make_linked_list(3);
+    auto head_ = SelectSortLinkedList::select_sort(head);
+    ASSERT_EQ(head_->val, 3);
+    ASSERT_EQ(head_->next, nullptr);
 }

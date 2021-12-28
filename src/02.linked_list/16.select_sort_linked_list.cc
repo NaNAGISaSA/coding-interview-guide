@@ -3,43 +3,47 @@
 namespace coding_interview_guide::linked_list::select_sort_linked_list {
 
 Node<int>* SelectSortLinkedList::select_sort(Node<int>* head) {
-    Node<int>* new_head = nullptr;
-    Node<int>* curr_new_head = new_head;
-
-    int val = 0;
-    Node<int>* old_head = head;
-    while (old_head != nullptr) {
-        val = old_head->val;
-        Node<int>* loop_prev = nullptr;
-        Node<int>* loop_head = old_head;
-        Node<int>* result_prev = loop_prev;
+    auto get_min_prev = [](Node<int>* loop_head) {
+        Node<int>* prev = nullptr;
+        Node<int>* ret = nullptr;
+        int val = loop_head->val;
         while (loop_head != nullptr) {
             if (loop_head->val < val) {
-                result_prev = loop_prev;
+                ret = prev;
                 val = loop_head->val;
             }
-            loop_prev = loop_head;
+            prev = loop_head;
             loop_head = loop_head->next;
         }
+        return ret;
+    };
 
-        if (curr_new_head == nullptr) {
-            new_head = result_prev == nullptr ? old_head : result_prev->next;
-            curr_new_head = new_head;
-        } else {
-            curr_new_head->next = result_prev == nullptr ? old_head : result_prev->next;
-            curr_new_head = curr_new_head->next;
-        }
-
-        if (result_prev == nullptr) {
-            old_head = old_head->next;
-        } else {
-            if (result_prev->next != nullptr) {
-                result_prev->next = result_prev->next->next;
+    Node<int>* curr_head = head;
+    Node<int>* min_prev = nullptr;
+    Node<int>* sort_tail = nullptr;
+    while (curr_head != nullptr) {
+        min_prev = get_min_prev(curr_head);
+        if (min_prev == nullptr) {
+            if (sort_tail == nullptr) {
+                sort_tail = curr_head;
+            } else {
+                sort_tail->next = curr_head;
+                sort_tail = sort_tail->next;
             }
+            curr_head = curr_head->next;
+        } else {
+            if (sort_tail == nullptr) {
+                sort_tail = min_prev->next;
+                head = sort_tail;
+            } else {
+                sort_tail->next = min_prev->next;
+                sort_tail = sort_tail->next;
+            }
+            min_prev->next = min_prev->next->next;
         }
     }
 
-    return new_head;
+    return head;
 }
 
 }  // namespace coding_interview_guide::linked_list::select_sort_linked_list

@@ -37,4 +37,11 @@ TEST(REVERSE_LINKED_LIST_BY_K, REVERSE_LINKED_LIST_BY_K_REVIEW_TEST) {
     ASSERT_EQ(head1_->next->next->next->next->next->val, 4);
     ASSERT_EQ(head1_->next->next->next->next->next->next->val, 7);
     ASSERT_EQ(head1_->next->next->next->next->next->next->next, nullptr);
+    auto head2 = wrapper.make_linked_list(1, 2, 3, 4);
+    auto head2_ = ReverseLinkedListByK::reverse_linked_list(head2, 5);
+    ASSERT_EQ(head2_->val, 1);
+    ASSERT_EQ(head2_->next->val, 2);
+    ASSERT_EQ(head2_->next->next->val, 3);
+    ASSERT_EQ(head2_->next->next->next->val, 4);
+    ASSERT_EQ(head2_->next->next->next->next, nullptr);
 }
