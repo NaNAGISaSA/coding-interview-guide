@@ -9,9 +9,6 @@ namespace coding_interview_guide::binary_tree::find_max_bst_topology {
 
 namespace {
 unsigned int binary_search_max_bst_topology(const Node<int>* root) {
-    if (root->left == nullptr && root->right == nullptr) {
-        return 1;
-    }
     std::queue<const Node<int>*> queue;
     if (root->left != nullptr) {
         queue.push(root->left);
@@ -20,28 +17,34 @@ unsigned int binary_search_max_bst_topology(const Node<int>* root) {
         queue.push(root->right);
     }
     unsigned int max_bst_topology = 1;
-    int curr_root_val = root->val;
-    const Node<int>* curr_root_node = root;
     while (queue.size()) {
         const Node<int>* front = queue.front();
         queue.pop();
-        while (curr_root_node != nullptr && curr_root_node != front) {
-            curr_root_node = front->val > curr_root_val ? curr_root_node->right : curr_root_node->left;
-            if (curr_root_node != nullptr) {
-                curr_root_val = curr_root_node->val;
+
+        auto is_valid_node = [&root](const Node<int>* node_to_find) {
+            const Node<int>* curr = root;
+            while (curr != nullptr) {
+                if (node_to_find == curr) {
+                    return true;
+                }
+                if (node_to_find->val > curr->val) {
+                    curr = curr->right;
+                } else {
+                    curr = curr->left;
+                }
             }
-        }
-        if (curr_root_node == front) {
+            return false;
+        };
+
+        if (is_valid_node(front)) {
             ++max_bst_topology;
-            if (curr_root_node->left != nullptr) {
-                queue.push(curr_root_node->left);
+            if (front->left != nullptr) {
+                queue.push(front->left);
             }
-            if (curr_root_node->right != nullptr) {
-                queue.push(curr_root_node->right);
+            if (front->right != nullptr) {
+                queue.push(front->right);
             }
         }
-        curr_root_node = root;
-        curr_root_val = root->val;
     }
     return max_bst_topology;
 }
@@ -51,11 +54,9 @@ unsigned int FindMaxBSTTopology::max_topology_num(const Node<int>* root) {
     if (root == nullptr) {
         return 0;
     }
-    unsigned int left_max = FindMaxBSTTopology::max_topology_num(root->left);
-    unsigned int right_max = FindMaxBSTTopology::max_topology_num(root->right);
-    unsigned int max_topology_num = std::max(left_max, right_max);
-    unsigned int middle_num = binary_search_max_bst_topology(root);
-    return middle_num > max_topology_num ? middle_num : max_topology_num;
+    unsigned int max_num = binary_search_max_bst_topology(root);
+    max_num = std::max(FindMaxBSTTopology::max_topology_num(root->left), max_num);
+    return std::max(FindMaxBSTTopology::max_topology_num(root->right), max_num);
 }
 
 namespace {

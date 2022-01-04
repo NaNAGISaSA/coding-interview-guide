@@ -6,23 +6,23 @@
 namespace coding_interview_guide::binary_tree::min_depth_for_binary_tree {
 
 namespace {
-unsigned int process(const Node<int>* root, unsigned int level) {
+unsigned int process(const Node<int>* root) {
     if (root->left == nullptr && root->right == nullptr) {
-        return level;
+        return 1;
     }
     unsigned int min_value = std::numeric_limits<unsigned int>::max();
     if (root->left != nullptr) {
-        min_value = std::min(process(root->left, level + 1), min_value);
+        min_value = std::min(process(root->left), min_value);
     }
     if (root->right != nullptr) {
-        min_value = std::min(process(root->right, level + 1), min_value);
+        min_value = std::min(process(root->right), min_value);
     }
-    return min_value;
+    return min_value + 1U;
 }
 }  // namespace
 
 unsigned int MinDepthForBinaryTree::min_depth(const Node<int>* root) {
-    return root == nullptr ? 0 : process(root, 1);
+    return root == nullptr ? 0 : process(root);
 }
 
 }  // namespace coding_interview_guide::binary_tree::min_depth_for_binary_tree

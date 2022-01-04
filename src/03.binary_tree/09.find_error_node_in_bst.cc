@@ -23,8 +23,7 @@ const Node<int>* in_order_traverse(const Node<int>* root, std::pair<int, int>& p
 
 std::pair<int, int> FindErrorNodeInBst::error_node(const Node<int>* root) {
     auto pair = std::make_pair(0, 0);
-    const Node<int>* prev = nullptr;
-    in_order_traverse(root, pair, prev);
+    in_order_traverse(root, pair, nullptr);
     return pair;
 }
 
