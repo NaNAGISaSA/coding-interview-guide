@@ -18,13 +18,12 @@ void print_node(int val, unsigned int level, const char sign) {
 }
 
 void traverse_tree(const Node<int>* root, unsigned int level, const char sign) {
-    if (root->right != nullptr) {
-        traverse_tree(root->right, level + 1, 'v');
+    if (root == nullptr) {
+        return;
     }
+    traverse_tree(root->right, level + 1, 'v');
     print_node(root->val, level, sign);
-    if (root->left != nullptr) {
-        traverse_tree(root->left, level + 1, '^');
-    }
+    traverse_tree(root->left, level + 1, '^');
 }
 }  // namespace
 

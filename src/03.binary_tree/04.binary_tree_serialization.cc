@@ -52,17 +52,17 @@ std::string BinaryTreeSerial::level_order_serial(const Node<int>* root) {
     }
     std::deque<const Node<int>*> queue;
     queue.push_front(root);
-    const Node<int>* top = nullptr;
+    const Node<int>* front = nullptr;
     std::string result = "";
     while (queue.size()) {
-        top = queue.front();
+        front = queue.front();
         queue.pop_front();
-        if (top == nullptr) {
+        if (front == nullptr) {
             result.append("#!");
         } else {
-            result.append(std::to_string(top->val) + "!");
-            queue.push_back(top->left);
-            queue.push_back(top->right);
+            result.append(std::to_string(front->val) + "!");
+            queue.push_back(front->left);
+            queue.push_back(front->right);
         }
     }
     return result;
@@ -77,19 +77,19 @@ const Node<int>* BinaryTreeSerial::level_order_deserial(const std::string& str) 
     std::deque<Node<int>*> queue;
     queue.push_back(root);
     element.erase(element.begin());
-    Node<int>* top = nullptr;
+    Node<int>* front = nullptr;
     while (element.size()) {
-        top = queue.front();
+        front = queue.front();
         queue.pop_front();
-        if (top != nullptr) {
+        if (front != nullptr) {
             if (element[0] != "#") {
-                top->left = new Node<int>(std::stoi(element[0]));
-                queue.push_back(top->left);
+                front->left = new Node<int>(std::stoi(element[0]));
+                queue.push_back(front->left);
             }
             element.erase(element.begin());
             if (element[0] != "#") {
-                top->right = new Node<int>(std::stoi(element[0]));
-                queue.push_back(top->right);
+                front->right = new Node<int>(std::stoi(element[0]));
+                queue.push_back(front->right);
             }
             element.erase(element.begin());
         }
