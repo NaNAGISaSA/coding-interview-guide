@@ -7,26 +7,26 @@ unsigned long ChangeMoneyMethods::methods_number(const std::vector<unsigned int>
     for (size_t i = 0; i <= vec.size(); ++i) {
         dp_matrix[i][0] = 1L;
     }
-    for (int i = static_cast<int>(vec.size()) - 1; i >= 0; --i) {
-        for (size_t j = 1; j <= aim; ++j) {
-            if (j < vec[i]) {
-                dp_matrix[i][j] = dp_matrix[i + 1][j];
+    for (int i = 1; i <= static_cast<int>(vec.size()); ++i) {
+        for (unsigned int j = 1; j <= aim; ++j) {
+            if (vec[i - 1] > j) {
+                dp_matrix[i][j] = dp_matrix[i - 1][j];
             } else {
                 dp_matrix[i][j] =
-                    (dp_matrix[i + 1][j] + dp_matrix[i][j - vec[i]]) % static_cast<unsigned long>((7 + 1e+9));
+                    (dp_matrix[i - 1][j] + dp_matrix[i][j - vec[i - 1]]) % static_cast<unsigned long>((7 + 1e+9));
             }
         }
     }
-    return dp_matrix[0][aim];
+    return dp_matrix[vec.size()][aim];
 }
 
 unsigned long ChangeMoneyMethods::methods_number_space_opt(const std::vector<unsigned int>& vec,
                                                            const unsigned int aim) {
     std::vector<unsigned long> dp_vector(aim + 1, 0L);
     dp_vector[0] = 1L;
-    for (int i = static_cast<int>(vec.size()) - 1; i >= 0; --i) {
+    for (int i = 1; i <= static_cast<int>(vec.size()); ++i) {
         for (size_t j = 1; j <= aim; ++j) {
-            dp_vector[j] = vec[i] > j ? dp_vector[j] : dp_vector[j] + dp_vector[j - vec[i]];
+            dp_vector[j] = vec[i - 1] > j ? dp_vector[j] : dp_vector[j] + dp_vector[j - vec[i - 1]];
         }
     }
     return dp_vector[aim];

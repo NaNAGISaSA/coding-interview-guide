@@ -17,12 +17,12 @@ TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_EXAMPLE_TEST) {
     ASSERT_EQ(HanoiProblem::advanced_problem({1, 1}), 0);
     ASSERT_EQ(HanoiProblem::advanced_problem({2, 1}), 1);
     ASSERT_EQ(HanoiProblem::advanced_problem({3, 3}), 3);
-    ASSERT_EQ(HanoiProblem::advanced_problem({2, 2}), -1);
+    ASSERT_EQ(HanoiProblem::advanced_problem({3, 2, 3}), -1);
 }
 
 TEST(HANOI_PROBLEM, HANOI_PROBLEM_ADVANCED_DP_EXAMPLE_TEST) {
     ASSERT_EQ(HanoiProblem::advanced_problem_dp({1, 1}), 0);
     ASSERT_EQ(HanoiProblem::advanced_problem_dp({2, 1}), 1);
     ASSERT_EQ(HanoiProblem::advanced_problem_dp({3, 3}), 3);
-    ASSERT_EQ(HanoiProblem::advanced_problem_dp({2, 2}), -1);
+    ASSERT_EQ(HanoiProblem::advanced_problem_dp({3, 2, 3}), -1);
 }

@@ -29,7 +29,7 @@ std::vector<unsigned int> MaxSubArr::arr(const std::vector<unsigned int>& vec) {
     size_t max_index = 0;
     for (size_t i = 1; i < vec.size(); ++i) {
         for (size_t j = 0; j < i; ++j) {
-            if (vec[j] < vec[i] && number[i] <= number[j]) {
+            if (vec[j] < vec[i] && number[j] >= number[i]) {
                 number[i] = number[j] + 1;
             }
         }

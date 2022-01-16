@@ -41,11 +41,14 @@ long advanced_problem_internal(const std::vector<unsigned int>& vec,
                                const unsigned int from,
                                const unsigned int mid,
                                const unsigned int to) {
+    if (index == 0) {
+        return vec[index] == from ? 0 : (vec[index] == to ? 1 : -1);
+    }
     if (vec[index] == from) {
-        return index == 0 ? 0 : advanced_problem_internal(vec, index - 1, from, to, mid);
+        return advanced_problem_internal(vec, index - 1, from, to, mid);
     } else if (vec[index] == to) {
-        long current_step = (1 << index);
-        return index == 0 ? current_step : current_step + advanced_problem_internal(vec, index - 1, mid, from, to);
+        long rest = advanced_problem_internal(vec, index - 1, mid, from, to);
+        return rest == -1 ? rest : rest + (1 << index);
     } else {
         return -1;
     }
@@ -64,11 +67,12 @@ long HanoiProblem::advanced_problem_dp(const std::vector<unsigned int>& vec) {
         return -1;
     }
     long step = 0;
+    long index = static_cast<long>(vec.size() - 1);
     unsigned int from = left_integer;
     unsigned int mid = middle_integer;
     unsigned int to = right_integer;
     unsigned int swap = 0;
-    for (long index = static_cast<long>(vec.size() - 1); index >= 0; --index) {
+    while (index >= 0) {
         if (vec[index] == from) {
             swap = to;
             to = mid;
@@ -81,6 +85,7 @@ long HanoiProblem::advanced_problem_dp(const std::vector<unsigned int>& vec) {
         } else {
             return -1;
         }
+        --index;
     }
     return step;
 }
