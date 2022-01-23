@@ -33,18 +33,17 @@ unsigned int MaxXorZeroSubArr::max_number(const std::vector<int>& vec) {
     return dp_vec[0];
 }
 
-unsigned int MaxXorZeroSubArr::max_number_space_opt(const std::vector<int>& vec) {
+unsigned int MaxXorZeroSubArr::max_number_opt(const std::vector<int>& vec) {
     size_t vec_size = vec.size();
     if (vec_size == 0) {
         return 0;
     }
     std::vector<unsigned int> dp_vec(vec_size, 0U);
-    dp_vec[0] = vec[0] == 0 ? 1U : 0U;
-    std::unordered_map<int, long> record{{0, -1}, {vec[0], 0}};
-    int xor_result = vec[0];
-    for (size_t i = 1; i < vec_size; ++i) {
+    std::unordered_map<int, long> record{{0, -1}};
+    int xor_result = 0;
+    for (size_t i = 0; i < vec_size; ++i) {
         xor_result ^= vec[i];
-        dp_vec[i] = dp_vec[i - 1];
+        dp_vec[i] = i == 0 ? 0 : dp_vec[i - 1];
         if (record.find(xor_result) != record.end()) {
             dp_vec[i] = std::max(dp_vec[i], record[xor_result] == -1 ? 1 : 1 + dp_vec[record[xor_result]]);
         }

@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <vector>
 
 #include "04.dynamic_programming/11.max_common_substr.h"
