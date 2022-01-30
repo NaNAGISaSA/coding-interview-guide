@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <queue>
-#include <stack>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -102,7 +101,7 @@ std::string MinChangeRoute::min_route(const std::vector<std::string>& vec,
     if (node_distance.find(to) == node_distance.end()) {
         return "";
     }
-    // step3. get all routes using dfs(can also use bfs)
+    // step3. get all routes using dfs(backtracing)
     size_t max_len = node_distance[to];
     std::vector<std::string> route, internal_route;
     get_routes(graph, node_distance, start, to, max_len, internal_route, route);

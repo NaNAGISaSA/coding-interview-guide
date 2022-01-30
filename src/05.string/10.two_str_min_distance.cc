@@ -26,11 +26,7 @@ long TwoStrMinDistance::min_distance(const std::vector<std::string>& vec,
             }
         }
     }
-    if (str1 == str2 && str1_index != -1) {
-        return 0;
-    } else {
-        return result == std::numeric_limits<long>::max() ? -1 : result;
-    }
+    return result == std::numeric_limits<long>::max() ? -1 : result;
 }
 
 }  // namespace coding_interview_guide::string::two_str_min_distance

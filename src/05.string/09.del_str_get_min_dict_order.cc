@@ -37,14 +37,14 @@ std::string GetMinDictOrderStr::process(const std::string& str) {
     };
 
     auto delete_char_in_str = [&left_process_str](char del_char, size_t start) {
-        for (auto it = std::next(left_process_str.begin(), start); it != left_process_str.end();) {
+        left_process_str = std::move(left_process_str.substr(start));
+        for (auto it = left_process_str.begin(); it != left_process_str.end();) {
             if (*it == del_char) {
                 it = left_process_str.erase(it);
             } else {
                 ++it;
             }
         }
-        left_process_str = std::move(left_process_str.substr(start));
     };
 
     while (left_process_str.size()) {
@@ -52,7 +52,7 @@ std::string GetMinDictOrderStr::process(const std::string& str) {
         for (size_t i = 0; i < left_process_str.size(); ++i) {
             if (--map[left_process_str[i]] == 0) {
                 auto&& [min_char, min_index] = find_min_char(i);
-                delete_char_in_str(min_char, min_index);
+                delete_char_in_str(min_char, min_index + 1);
                 break;
             }
         }

@@ -11,28 +11,24 @@ int ChangeIntStrToInt::number(const std::string& str) {
     }
     size_t str_size = str.size();
     auto is_valid = [&str_size, &str]() {
-        if (str[0] != '-' && (str[0] < '0' || str[0] > '9')) {
-            return false;
-        }
         if (str[0] == '-' && (str_size == 1 || str[1] == '0')) {
             return false;
         }
         if (str[0] == '0' && str_size > 1) {
             return false;
         }
-        if (str_size > std::to_string(std::numeric_limits<int>::min()).size()) {
+        if (str[0] == '-' && str_size > std::to_string(std::numeric_limits<int>::min()).size()) {
             return false;
         }
-        for (size_t i = 1; i < str_size; ++i) {
-            if (str[i] < '0' || str[i] > '9') {
-                return false;
-            }
+        if (str[0] != '-' && str_size > std::to_string(std::numeric_limits<int>::max()).size()) {
+            return false;
         }
         return true;
     };
     if (!is_valid()) {
         return 0;
     }
+    // TODO: rewrite the following code only using int
     long result = 0L;
     for (size_t i = 1; i < str_size; ++i) {
         result = result * 10 + (str[i] - '0');

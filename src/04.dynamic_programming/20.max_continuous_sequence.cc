@@ -10,9 +10,9 @@ unsigned int MaxContinuousSequence::length(const std::vector<unsigned int>& vec)
     unsigned int max_value = 1U;
 
     auto adjust_map = [&map](unsigned int left, unsigned int right) {
-        unsigned int len = map[left] + map[right];
-        map[left - map[left] + 1] = len;
-        map[right + map[right] - 1] = len;
+        unsigned int len = map.at(left) + map.at(right);
+        map.at(left - map.at(left) + 1) = len;
+        map.at(right + map.at(right) - 1) = len;
         return len;
     };
 

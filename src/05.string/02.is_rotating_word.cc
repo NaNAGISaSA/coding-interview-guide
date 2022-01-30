@@ -21,7 +21,7 @@ bool IsRotatingWord::rotating_method2(const std::string& str1, const std::string
         return false;
     }
     std::string double_str = str1 + str1;
-    return double_str.find(str2) != std::string::npos;
+    return double_str.find(str2) != std::string::npos;  // KMP, O(N)
 }
 
 }  // namespace coding_interview_guide::string::is_rotating_word
