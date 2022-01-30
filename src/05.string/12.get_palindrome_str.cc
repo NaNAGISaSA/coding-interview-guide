@@ -42,32 +42,23 @@ std::string AddMinCharToGetPalindromeStr::get_palindrome_str_advanced(const std:
                                                                       const std::string& strlps) {
     std::string result(2 * str.size() - strlps.size(), '\0');
     size_t lstr = 0, rstr = str.size() - 1;
-    size_t ltmp = 0, rtmp = str.size() - 1;
     size_t lstrlps = 0, rstrlps = strlps.size() - 1;
     size_t lres = 0, rres = result.size() - 1;
-    while (lstrlps <= rstrlps) {
-        while (str[ltmp] != strlps[lstrlps]) {
-            ++ltmp;
-        }
-        while (str[rtmp] != strlps[rstrlps]) {
-            --rtmp;
-        }
-        // choose one mthod to make palindrome str elegantly
-        // AB~CD ABDC~CDBA
-        for (size_t i = 0; i < ltmp - lstr; ++i) {
-            result[lres++] = str[lstr + i];
+    while (lstr <= rstr) {
+        if (str[lstr] != strlps[lstrlps]) {
+            result[lres++] = str[lstr];
             result[rres--] = str[lstr++];
         }
-        for (size_t i = 0; i < rstr - rtmp; ++i) {
-            result[rres--] = str[rstr - i];
-            result[lres++] = str[rstr--];
+        if (str[rstr] != strlps[rstrlps]) {
+            result[lres++] = str[rstr];
+            result[rres--] = str[rstr--];
         }
-        result[lres++] = str[lstr++];
-        result[rres--] = str[rstr--];
-        ltmp = lstr;
-        rtmp = rstr;
-        ++lstrlps;
-        --rstrlps;
+        if (str[lstr] == strlps[lstrlps] && str[rstr] == strlps[rstrlps]) {
+            result[lres++] = str[lstr++];
+            result[rres--] = str[rstr--];
+            lstrlps++;
+            rstrlps--;
+        }
     }
     return result;
 }

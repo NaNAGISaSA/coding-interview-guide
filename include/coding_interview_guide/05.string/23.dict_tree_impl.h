@@ -3,7 +3,8 @@
 
 /*
 【题目】
-字典树又称为前缀树或者Trie树，是处理字符串常用的数据结构。假设组成所有单词的字符仅是‘a’～‘z’，请实现字典树的结构，并包含以下四个主要的功能。
+字典树又称为前缀树或者Trie树，是处理字符串常用的数据结构。
+假设组成所有单词的字符仅是‘a’～‘z’，请实现字典树的结构，并包含以下四个主要的功能：
 void insert(String word)：添加word，可重复添加；
 void delete(String word)：删除word，如果word添加过多次，仅删除一次；
 boolean search(String word)：查询word是否在字典树中；
