@@ -30,7 +30,7 @@ long FindStrInOrderVec::find_index(const std::vector<std::string>& vec, const st
                 if (vec[internal_middle] == str) {
                     result = internal_middle;
                 }
-                right = middle - 1;
+                right = internal_middle - 1;
             }
         }
     }

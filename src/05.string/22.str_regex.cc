@@ -37,7 +37,6 @@ bool match_internal(const std::string& str, size_t str_start, const std::string&
             return true;
         }
     }
-    // exp中x*匹配0个或者两者当前字符不相等的情况
     return match_internal(str, str_start, exp, exp_start + 2);
 }
 }  // namespace
