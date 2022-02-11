@@ -16,7 +16,10 @@ struct Cooridnate {
 
 long ShortestPath::shortest_path(const std::vector<std::vector<unsigned int>>& mat) {
     if (mat.size() == 0 || mat[0].size() == 0 || mat[0][0] == 0) {
-        return -1;
+        return 0;
+    }
+    if (mat.size() == 1 && mat[0].size() == 1) {
+        return 1;
     }
     size_t row_number = mat.size(), colunm_number = mat[0].size();
     std::vector<std::vector<bool>> visited(row_number, std::vector<bool>(colunm_number, false));

@@ -22,11 +22,8 @@ unsigned int MaxInterSubarrLen::max_len(const std::vector<int>& vec) {
                 break;
             }
             set.insert(vec[j]);
-            if (vec[j] > max_value) {
-                max_value = vec[j];
-            } else if (vec[j] < min_value) {
-                min_value = vec[j];
-            }
+            max_value = std::max(max_value, vec[j]);
+            min_value = std::min(min_value, vec[j]);
             if (static_cast<size_t>(max_value - min_value) == j - i) {
                 max_length = std::max(max_length, static_cast<unsigned int>(set.size()));
             }

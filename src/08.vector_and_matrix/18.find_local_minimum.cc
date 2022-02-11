@@ -11,6 +11,8 @@ int FindLocalMinimum::find(const std::vector<int>& vec) {
     } else if (vec[vec_size - 1] < vec[vec_size - 2]) {
         return vec_size - 1;
     }
+    // 这道题可以使用二分查找，是因为当数组每一个数都不同，N>2且局部最小不在
+    //   头尾时，一定存在一个局部最小在除头尾之外的中部位置
     int left = 1, right = vec_size - 2;
     int mid = 0;
     while (left < right) {

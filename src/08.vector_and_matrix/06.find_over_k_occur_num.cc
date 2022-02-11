@@ -40,24 +40,21 @@ void FindOccurNum::find_over_n_div_k_num(const std::vector<int>& vec, unsigned i
         return;
     }
     std::unordered_map<int, unsigned int> count_map;
-    unsigned int count = 0U;
     for (size_t i = 0; i < vec.size(); ++i) {
-        if (count_map.find(vec[i]) == count_map.end()) {
-            ++count;
-            if (count == k) {
-                for (auto it = count_map.begin(); it != count_map.end();) {
-                    if (it->second == 1U) {
-                        it = count_map.erase(it);
-                    } else {
-                        --(it->second);
-                        ++it;
-                    }
-                }
-            } else {
-                count_map.insert({vec[i], 1U});
-            }
-        } else {
+        if (count_map.find(vec[i]) != count_map.end()) {
             ++count_map[vec[i]];
+            continue;
+        }
+        count_map.insert({vec[i], 1U});
+        if (count_map.size() == k) {
+            for (auto it = count_map.begin(); it != count_map.end();) {
+                if (it->second == 1U) {
+                    it = count_map.erase(it);
+                } else {
+                    --(it->second);
+                    ++it;
+                }
+            }
         }
     }
     for (auto it = count_map.begin(); it != count_map.end(); ++it) {
