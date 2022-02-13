@@ -24,6 +24,7 @@ unsigned int NumberOfOne::count_m2(int a) {
 unsigned int NumberOfOne::count_m3(int a) {
     unsigned int result = 0U;
     while (a != 0) {
+        // minus the lowest bit of 1
         a -= a & (~a + 1);
         ++result;
     }

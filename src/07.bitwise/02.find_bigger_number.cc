@@ -6,7 +6,7 @@ NOTE: In c++, it is a undefined behavior for left|right shift a negative number!
 namespace coding_interview_guide::bitwise::find_bigger_number {
 
 int FindBiggerNumber::number(int a, int b) {
-    int sign = ((a - b) >> 31) & 1;  // bug: a- b may be overflow
+    int sign = ((a - b) >> 31) & 1;  // bug: may be overflow
     return a * (1 - sign) + b * sign;
 }
 

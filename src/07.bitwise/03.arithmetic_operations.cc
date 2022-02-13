@@ -22,14 +22,12 @@ int ArithmeticOperations::sub(int a, int b) {
 }
 
 int ArithmeticOperations::multi(int a, int b) {
-    if (a == std::numeric_limits<int>::min() || b == std::numeric_limits<int>::min()) {
-        if (a == 0 || b == 0) {
-            return 0;
-        } else if (a == 1 || b == 1) {
-            return std::numeric_limits<int>::min();
-        }
+    if (a == 0 || b == 0) {
+        return 0;
     }
-
+    if (a == std::numeric_limits<int>::min() || b == std::numeric_limits<int>::min()) {
+        return a == 1 || b == 1 ? std::numeric_limits<int>::min() : -1;
+    }
     int result = 0;
     int sign_a = (a >> 31) & 1, sign_b = (b >> 31) & 1;
     if (sign_a) {
