@@ -9,7 +9,7 @@ unsigned int MaxSubarrLenEqKSeries::problem1(const std::vector<int>& vec, int k)
     if (vec.size() == 0) {
         return 0U;
     }
-    std::unordered_map<int, long> map{{0, -1}};
+    std::unordered_map<int, int> map{{0, -1}};
     int sum = 0;
     unsigned int max_length = 0U;
     for (size_t i = 0; i < vec.size(); ++i) {
@@ -28,7 +28,7 @@ unsigned int MaxSubarrLenEqKSeries::problem2(const std::vector<int>& vec) {
     if (vec.size() == 0) {
         return 0U;
     }
-    std::unordered_map<int, size_t> map{{0, -1}};
+    std::unordered_map<int, int> map{{0, -1}};
     int sum = 0;
     unsigned int max_length = 0U;
     for (size_t i = 0; i < vec.size(); ++i) {
@@ -46,7 +46,7 @@ unsigned int MaxSubarrLenEqKSeries::problem3(const std::vector<unsigned int>& ve
     if (vec.size() == 0) {
         return 0U;
     }
-    std::unordered_map<int, size_t> map{{0, -1}};
+    std::unordered_map<int, int> map{{0, -1}};
     int sum = 0;
     unsigned int max_length = 0U;
     for (size_t i = 0; i < vec.size(); ++i) {

@@ -11,16 +11,16 @@ unsigned int ContainerWaterProblem::capacity(const std::vector<unsigned int>& ve
     unsigned int left_max = vec[0], right_max = vec[vec_size - 1];
     unsigned int result = 0U;
     while (left <= right) {
-        if (left_max <= right_max) {
-            if (left_max >= vec[left]) {
-                result = result + left_max - vec[left];
+        if (left_max < right_max) {
+            if (left_max > vec[left]) {
+                result += left_max - vec[left];
             } else {
                 left_max = vec[left];
             }
             ++left;
         } else {
-            if (right_max >= vec[right]) {
-                result = result + right_max - vec[right];
+            if (right_max > vec[right]) {
+                result += right_max - vec[right];
             } else {
                 right_max = vec[right];
             }

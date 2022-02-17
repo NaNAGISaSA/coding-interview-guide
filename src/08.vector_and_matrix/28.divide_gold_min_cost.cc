@@ -15,6 +15,7 @@ unsigned int DivideGoldMinCost::min_cost(const std::vector<unsigned int>& vec) {
     }
     unsigned int result = 0U;
     unsigned int tmp1 = 0U, tmp2 = 0U;
+    // greedy method
     while (min_heap.size() > 1) {
         tmp1 = min_heap.top();
         min_heap.pop();

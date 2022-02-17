@@ -8,18 +8,18 @@ void OddEvenIdxAllOddEven::adjust(std::vector<int>& vec) {
         return;
     }
     size_t even_index_begin = 0, odd_index_begin = 1;
-    while (true) {
-        while (vec[even_index_begin] % 2 == 0) {
+    while (even_index_begin < vec_size && odd_index_begin < vec_size) {
+        while (even_index_begin < vec_size && vec[even_index_begin] % 2 == 0) {
             even_index_begin += 2;
-            if (even_index_begin >= vec_size) {
-                return;
-            }
         }
-        while (vec[odd_index_begin] % 2 == 1) {
+        if (even_index_begin >= vec_size) {
+            return;
+        }
+        while (odd_index_begin < vec_size && vec[odd_index_begin] % 2 == 1) {
             odd_index_begin += 2;
-            if (odd_index_begin >= vec_size) {
-                return;
-            }
+        }
+        if (odd_index_begin >= vec_size) {
+            return;
         }
         std::swap(vec[even_index_begin], vec[odd_index_begin]);
     }
