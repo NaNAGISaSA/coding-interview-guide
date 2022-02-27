@@ -21,7 +21,7 @@ unsigned int DivideGoldMinCost::min_cost(const std::vector<unsigned int>& vec) {
         min_heap.pop();
         tmp2 = min_heap.top();
         min_heap.pop();
-        result = result + tmp1 + tmp2;
+        result += tmp1 + tmp2;
         min_heap.push(tmp1 + tmp2);
     }
     return result;

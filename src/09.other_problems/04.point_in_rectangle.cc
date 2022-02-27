@@ -3,12 +3,13 @@
 namespace coding_interview_guide::other_problems::point_in_rectangle {
 
 /*
-坐标变换：X0Y0 逆时针转theta X1Y1
-X0 = cos(theta) * X1 - sin(theta) * Y1
-Y0 = sin(theta) * X1 + cos(theta) * Y1
-或
-X1 = cos(theta) * X0 + sin(theta) * Y0
-Y1 = -sin(theta) * X0 + cos(theta) * Y0
+平面内直角坐标系中坐标旋转变换公式
+1）逆时针
+x1 = x * cos(theta) - y * sin(theta);
+y1 = y * cos(theta) + x * sin(theta);
+2）顺时针
+x1 = x * cos(theta) + y * sin(theta);
+y1 = y * cos(theta) - x * sin(theta);
 */
 bool PointInRectangle::judge(const std::pair<double, double>& left_point,
                              const std::pair<double, double>& top_point,

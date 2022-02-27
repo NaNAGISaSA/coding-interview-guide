@@ -16,6 +16,7 @@ struct Node {
 
 struct TopKRecorder::Impl {
     Impl(unsigned int k) : node_map{}, index_map{}, min_heap{}, heap_size(k) {
+        min_heap.reserve(k);
     }
 
     void add(const std::string& str) {
@@ -24,6 +25,12 @@ struct TopKRecorder::Impl {
         } else {
             ++(node_map[str]->count);
         }
+        // Note: 这里可能出现heapify之后堆结构仍然被破坏的情况，如：
+        //        1
+        //     1      2
+        //   1   1  1   1
+        // 此时虽然堆结构被破坏，但是由于堆的top仍然为入堆的字符串中出现次数
+        // 最少的，且top部分的堆结构永远不会被破坏，因此对结果不会产生影响
         if (index_map.find(node_map[str].get()) != index_map.end()) {
             heapify(0, min_heap.size());
             return;

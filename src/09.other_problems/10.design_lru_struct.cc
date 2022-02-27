@@ -19,47 +19,33 @@ struct Node {
 template struct Node<int>;
 
 struct DoubleLinkedList {
-    DoubleLinkedList() : head(nullptr), tail(nullptr), size(0) {
+    DoubleLinkedList() : head(-1), tail(-1), dummy_head(&head), dummy_tail(&tail), size(0) {
+        dummy_head->next = dummy_tail;
+        dummy_tail->prev = dummy_head;
     }
 
     void remove_node(Node<int>* node) {
-        if (head != node && tail != node) {
-            node->prev->next = node->next;
-            node->next->prev = node->prev;
-        }
-        if (head == node) {
-            head = node->next;
-            if (head != nullptr) {
-                head->prev = nullptr;
-            }
-        }
-        if (tail == node) {
-            tail = node->prev;
-            if (tail != nullptr) {
-                tail->next = nullptr;
-            }
-        }
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
         --size;
     }
 
     void push_front(Node<int>* node) {
-        if (head == node) {
-            return;
-        }
-        if (head == nullptr) {
-            head = node;
-            tail = node;
-        } else {
-            node->prev = nullptr;
-            node->next = head;
-            head->prev = node;
-            head = node;
-        }
+        node->prev = dummy_head;
+        node->next = dummy_head->next;
+        dummy_head->next->prev = node;
+        dummy_head->next = node;
         ++size;
     }
 
-    Node<int>* head;
-    Node<int>* tail;
+    Node<int>* get_last_node() {
+        return dummy_tail->prev;
+    }
+
+    Node<int> head;
+    Node<int> tail;
+    Node<int>* dummy_head;  // always &head
+    Node<int>* dummy_tail;  // always &tail
     size_t size;
 };
 
@@ -76,9 +62,10 @@ public:
             return;
         }
         if (list.size == capacity) {
-            int key = map2[list.tail];
-            list.remove_node(list.tail);
-            map2.erase(map[key].get());
+            Node<int>* last_node = list.get_last_node();
+            int key = map2[last_node];
+            list.remove_node(last_node);
+            map2.erase(last_node);
             map.erase(key);
         }
         map.insert(std::make_pair(key, std::make_unique<Node<int>>(value)));

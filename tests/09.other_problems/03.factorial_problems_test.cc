@@ -10,12 +10,6 @@ TEST(FACTORIAL_PROBLEMS, FACTORIAL_PROBLEMS_EXAMPLE_TEST) {
     ASSERT_EQ(FactorialProblems::zero_number(1000), 249U);
 }
 
-TEST(FACTORIAL_PROBLEMS, FACTORIAL_PROBLEMS_OPT_EXAMPLE_TEST) {
-    ASSERT_EQ(FactorialProblems::zero_number_opt(4), 0U);
-    ASSERT_EQ(FactorialProblems::zero_number_opt(5), 1U);
-    ASSERT_EQ(FactorialProblems::zero_number_opt(1000), 249U);
-}
-
 TEST(FACTORIAL_PROBLEMS, FACTORIAL_BINARY_PROBLEMS_EXAMPLE_TEST) {
     ASSERT_EQ(FactorialProblems::binary_number(1), 0U);
     ASSERT_EQ(FactorialProblems::binary_number(2), 1U);

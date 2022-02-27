@@ -3,18 +3,6 @@
 namespace coding_interview_guide::other_problems::factorial_problems {
 
 unsigned int FactorialProblems::zero_number(unsigned int number) {
-    unsigned int result = 0U, curr_num = 0U;
-    for (unsigned int i = 5U; i <= number; i += 5U) {
-        curr_num = i;
-        while (curr_num % 5U == 0U) {
-            curr_num /= 5U;
-            ++result;
-        }
-    }
-    return result;
-}
-
-unsigned int FactorialProblems::zero_number_opt(unsigned int number) {
     unsigned int result = 0U, curr_num = 5U;
     while (curr_num <= number) {
         result += number / curr_num;
@@ -24,13 +12,10 @@ unsigned int FactorialProblems::zero_number_opt(unsigned int number) {
 }
 
 unsigned int FactorialProblems::binary_number(unsigned int number) {
-    unsigned int result = 0U, curr_num = 0U;
-    for (unsigned int i = 1U; i <= number; ++i) {
-        curr_num = i;
-        while (curr_num % 2U == 0U) {
-            curr_num /= 2U;
-            ++result;
-        }
+    unsigned int result = 0, curr_num = 2;
+    while (curr_num <= number) {
+        result += number / curr_num;
+        curr_num <<= 1U;
     }
     return result;
 }

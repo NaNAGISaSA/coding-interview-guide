@@ -12,7 +12,7 @@ unsigned int DivideCandyProblem::min_candy_num1(const std::vector<unsigned int>&
 
     auto add_right_slope = [&result](unsigned int begin, unsigned int end) {
         unsigned int ele_num = end - begin + 1;
-        result = result + ele_num + ele_num * (ele_num - 1) / 2;
+        result += ele_num * (ele_num + 1) / 2;
     };
 
     auto next_left_slope = [&point, &vec_size](unsigned int start) {
@@ -99,7 +99,7 @@ unsigned int DivideCandyProblem::min_candy_num2(const std::vector<unsigned int>&
             } else if (same == 1) {
                 result -= lbase;
             } else {
-                result = result + (right_slope_len - lbase) * same - right_slope_len;
+                result += (right_slope_len - lbase) * same - right_slope_len;
             }
             index = next_left_start + 1;
             same = 1;

@@ -2,6 +2,11 @@
 
 namespace coding_interview_guide::other_problems::point_in_triangle {
 
+/*
+叉积性质：
+如果向量AB叉乘向量AC结果为正，说明C在AB的左边；
+如果向量AB叉乘向量AC结果为负，说明C在AB的右边；
+*/
 bool PointInTriangle::judge(double x1, double y1, double x2, double y2, double x3, double y3, double x, double y) {
     auto cross_product = [](double x1, double y1, double x2, double y2) { return x1 * y2 - x2 * y1; };
     if (cross_product(x2 - x1, y2 - y1, x3 - x1, y3 - y1) < 0) {
