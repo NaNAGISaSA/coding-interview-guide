@@ -87,6 +87,7 @@ void CountPathArr::common_bfs(std::vector<int>& path) {
         path[i] = 0;
     }
     std::unordered_set<int> visited;
+    visited.insert(cap);
     std::queue<int> queue;
     queue.push(cap);
     size_t distance = 0;
@@ -94,22 +95,16 @@ void CountPathArr::common_bfs(std::vector<int>& path) {
     while (queue.size()) {
         int city = queue.front();
         queue.pop();
-        --curr_distance_city_number;
-        if (visited.find(city) != visited.end()) {
-            if (curr_distance_city_number == 0) {
-                curr_distance_city_number = queue.size();
-                ++distance;
-            }
-            continue;
-        }
-        visited.insert(city);
         ++path[distance];
         if (graph.find(city) != graph.end()) {
-            for (size_t i = 0; i < graph[city].size(); ++i) {
-                queue.push(graph[city][i]);
+            for (auto& city_num : graph[city]) {
+                if (visited.find(city_num) == visited.end()) {
+                    queue.push(city_num);
+                    visited.insert(city_num);
+                }
             }
         }
-        if (curr_distance_city_number == 0) {
+        if (--curr_distance_city_number == 0) {
             curr_distance_city_number = queue.size();
             ++distance;
         }

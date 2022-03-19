@@ -6,6 +6,7 @@ namespace coding_interview_guide::other_problems::num_is_palindrome {
 
 bool NumIsPalindrome::is_palindrome(int number) {
     if (number < 0) {
+        // overflow caution!
         if (number == std::numeric_limits<int>::min()) {
             return false;
         }

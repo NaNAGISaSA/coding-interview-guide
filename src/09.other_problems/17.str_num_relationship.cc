@@ -12,6 +12,7 @@ std::string StrNumRelationship::num_to_str(const std::vector<char>& vec, unsigne
         return "";
     }
     unsigned int str_num = 0, multi = 1;
+    // 由于每一位必须>=1，因此可以先假设都是1，直到减不下去为止，随后再处理剩下的数
     while (num >= multi) {
         ++str_num;
         num -= multi;

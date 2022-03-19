@@ -20,7 +20,7 @@ unsigned int MinNoPossibleSum::min_value(const std::vector<unsigned int>& vec) {
     dp_vec[0] = true;
     for (size_t i = 0; i < vec_size; ++i) {
         for (unsigned int j = max_sum; j >= vec[i]; --j) {
-            dp_vec[j] = dp_vec[j - vec[i]] ? true : dp_vec[j];
+            dp_vec[j] = dp_vec[j - vec[i]] || dp_vec[j];
         }
     }
     for (unsigned int i = min_value; i <= max_sum; ++i) {

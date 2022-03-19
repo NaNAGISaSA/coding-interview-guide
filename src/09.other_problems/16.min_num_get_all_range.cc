@@ -9,14 +9,9 @@ unsigned int MinNumGetAllRange::min_num(const std::vector<unsigned int>& vec, un
     size_t vec_size = vec.size();
     auto vec_copy = vec;
     std::sort(vec_copy.begin(), vec_copy.end());
-    unsigned int min_num = 0;
-    unsigned int sum_range = 0;
-    if (vec_size == 0 || vec_copy[0] != 1) {
-        ++min_num;
-        sum_range = 1;
-    }
+    unsigned int min_num = 0, sum_range = 0;
     size_t index = 0;
-    while (range > sum_range) {
+    while (sum_range < range) {
         if (index < vec_size) {
             if (vec_copy[index] > sum_range + 1) {
                 sum_range = 2 * sum_range + 1;
