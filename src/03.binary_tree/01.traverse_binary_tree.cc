@@ -88,7 +88,8 @@ void TraverseBinaryTree::post_order_traverse_s1_method(const Node<int>* root) {
     const Node<int>* top = nullptr;
     while (stack.size()) {
         top = stack.top();
-        if (top->left != nullptr && last_pop_node != top->left && last_pop_node != top->right) {
+        if (top->left != nullptr && last_pop_node != top->left &&
+            (top->right == nullptr || last_pop_node != top->right)) {
             stack.push(top->left);
         } else if (top->right != nullptr && last_pop_node != top->right) {
             stack.push(top->right);
